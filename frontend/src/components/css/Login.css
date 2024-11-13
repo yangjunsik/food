@@ -1,0 +1,76 @@
+/* Login.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 600px;
+    margin: 70px auto;
+    padding: 100px 0;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 1px 2px 3px 1px lightgray;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.login_span {
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.login_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.id_label, .pw_label {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.id_label input, .pw_label input {
+    width: 100%;
+    padding: 5px;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+}
+
+.login_section button {
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: #8FBC8F;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.login_section button:hover {
+    opacity: 0.7;
+}
+
+.login_search_section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.explanation_section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.explanation_section span {
+    font-size: 14px;
+}
