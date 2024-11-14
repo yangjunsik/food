@@ -27,7 +27,7 @@ public class UserController {
         Map<String, String> response = new HashMap<>();
 
         if (isAuthenticated) {
-            System.out.println("로그인 권한 성공");
+            System.out.println("로그인 정보보내기 성공");
             String token = jwtUtil.generateToken(userDTO.getId());
             response.put("message", "Login successful");
             response.put("token", token);
@@ -36,6 +36,30 @@ public class UserController {
             response.put("message", "Invalid credentials");
             return ResponseEntity.status(401).body(response);
         }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<Map<String, String>> register(@RequestBody UserDTO userDTO) {
+        boolean isRegistered = userService.registerUser(userDTO);
+        Map<String, String> response = new HashMap<>();
+
+        if (isRegistered) {
+            System.out.println("회원가입 벡엔드 정보보내기 성공");
+            response.put("message", "Registration successful");
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("message", "Registration failed. User may already exist.");
+            return ResponseEntity.status(400).body(response);
+        }
+    }
+
+    @PostMapping("/checkDuplicateId")
+    public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@RequestBody Map<String, String> request) {
+        String id = request.get("id");
+        boolean isDuplicate = userService.isIdDuplicated(id);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("isDuplicate", isDuplicate);
+        return ResponseEntity.ok(response);
     }
 }
 

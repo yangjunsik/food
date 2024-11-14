@@ -31,6 +31,23 @@ public class UserService {
 
         return isPasswordMatch;
     }
+
+    public boolean registerUser(UserDTO userDTO) {
+        // 중복 ID 체크
+        if (userMapper.findByUsername(userDTO.getId()) != null) {
+            return false;
+        }
+
+        // 유저 정보 등록
+        userMapper.insertUser(userDTO);
+        return true;
+    }
+
+    public boolean isIdDuplicated(String id) {
+        return userMapper.findByUsername(id) != null;
+    }
+
+
 }
 
 

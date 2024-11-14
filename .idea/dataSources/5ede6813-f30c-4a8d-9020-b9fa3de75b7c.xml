@@ -1023,7 +1023,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="297" parent="1" name="knu_food">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-11-10.11:11:34</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-11-14.12:27:18</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="298" parent="1" name="root">
@@ -1079,9 +1079,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="310" parent="303" name="stdNo">
+    <column id="310" parent="303" name="phone">
       <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="311" parent="303" name="name">
@@ -1090,6 +1089,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="312" parent="303" name="id">
       <DasType>varchar(45)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="313" parent="303" name="password">
@@ -1097,7 +1097,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>4</Position>
     </column>
     <index id="314" parent="303" name="PRIMARY">
-      <ColNames>stdNo</ColNames>
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>

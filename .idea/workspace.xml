@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27bd5c3a-2781-4104-aa31-a4b524f1c6ee" name="Changes" comment="로그인">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/config/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/config/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/axiosConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mybatis/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mybatis/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Interface" />
         <option value="Class" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>

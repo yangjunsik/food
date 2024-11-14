@@ -1,0 +1,230 @@
+/*@import "../public/public.css";*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 600px;
+    margin: 70px auto;
+    padding: 20px 20px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 1px 2px 3px 1px lightgray;
+}
+
+h1{
+    font-size: 20px;
+    text-align: center;
+    padding: 30px 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-section{
+    display: flex;
+    width: 100%;
+}
+.form-section > label > i{
+    margin-right: 19px;
+}
+.form-section > label > span{
+    margin-right: 19px;
+}
+.form-section > label > input{
+    flex: 1;
+}
+
+
+.id-section{
+    margin-bottom: 10px;
+}
+
+.id-section > label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.id-section > button{
+    font-size: 20px;
+    width: 100px;
+}
+
+.fa-solid{
+    margin-right: 5px;
+}
+
+.id-duplication-btn{
+    border: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    padding: 2px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.valid-check-id{
+    display: none;
+}
+
+/************************************************/
+
+.pw-section{
+    margin-bottom: 10px;
+}
+
+.pw-section > label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.valid-check-pw{
+    display: none;
+}
+
+/************************************************/
+
+.pw-check-section{
+    margin-bottom: 10px;
+}
+
+.pw-check-section > label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+/************************************************/
+
+.num-section{
+    margin-bottom: 10px;
+}
+
+.num-section > span{
+
+}
+
+.num-section > label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+/************************************************/
+
+.name-section{
+    margin-bottom: 10px;
+}
+
+.name-section > label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+/************************************************/
+
+.call-section{
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.call-send-label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.call-button{
+    background-color: white;
+    border: 2px solid lightgreen;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.call-accept-label{
+    display: flex;
+    width: 100%;
+    padding: 6px 10px;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+/************************************************/
+
+.register-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-section > button{
+    cursor: pointer;
+}
+
+.register-section > button:hover{
+    opacity: 0.7;
+}
+
+.register-section > #register-btn{
+    background-color: lightgreen;
+    border: none;
+    border-radius: 6px;
+    margin-right: 30px;
+    padding: 10px 15px;
+    font-size: 20px;
+}
+
+.register-section > #cancel-btn{
+    background-color: white;
+    border: 2px solid green;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 20px;
+}
+
+label > input{
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+}

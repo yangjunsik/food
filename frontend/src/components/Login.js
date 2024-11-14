@@ -62,7 +62,7 @@ function Login({ onLogin }) {
                     <div>
                         <a href="#">아이디찾기/</a>
                         <a href="#">비밀번호찾기/</a>
-                        <a href="/user/student-number">회원가입</a>
+                        <a href="#" onClick={() => navigate("/register")}>회원가입</a>
                     </div>
                 </section>
                 <section className="explanation_section">
