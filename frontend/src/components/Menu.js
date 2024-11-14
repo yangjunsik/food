@@ -1,30 +1,24 @@
 // src/components/Menu.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../axiosConfig';
 
 function Menu() {
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
 
-
     useEffect(() => {
-        // Menu 데이터를 가져오는 함수
         const fetchMenu = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/menu", { withCredentials: true });
-                setMenuItems(response.data); // 서버에서 받은 데이터 설정
+                const response = await api.get("/menu"); // api 인스턴스를 사용하여 요청
+                setMenuItems(response.data);
             } catch (error) {
                 setError("Failed to fetch menu items");
                 console.error("Error fetching menu:", error);
             }
         };
 
-        fetchMenu(); // 페이지 로딩 시 데이터 요청
+        fetchMenu();
     }, []);
-
-    if (error) {
-        return <div>An error occurred while fetching the menu.</div>;
-    }
 
     return (
         <div>
@@ -34,8 +28,6 @@ function Menu() {
                     <li key={index}>
                         <h2>{item.name}</h2>
                         <p>Price: {item.price}</p>
-                        <img src={item.image} alt={item.name} width="100" />
-                        <p>Number: {item.number}</p>
                     </li>
                 ))}
             </ul>
@@ -44,6 +36,9 @@ function Menu() {
 }
 
 export default Menu;
+
+
+
 
 
 

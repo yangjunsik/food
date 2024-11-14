@@ -1,6 +1,6 @@
 // src/components/Login.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 
@@ -13,20 +13,10 @@ function Login({ onLogin }) {
         event.preventDefault();
 
         try {
-            const response = await axios.post(
-                "http://localhost:8080/user/login", // 엔드포인트 수정 확인
-                {
-                    id, // User ID 필드 (백엔드 요구사항에 맞춤)
-                    password, // Password 필드 (백엔드 요구사항에 맞춤)
-                },
-                {
-                    withCredentials: true // 세션 쿠키 포함 설정
-                }
-            );
-
+            const response = await api.post("/user/login", { id, password });
             if (response.data && response.data.message === "Login successful") {
                 alert("Login successful!");
-                sessionStorage.setItem("user_id", id);
+                sessionStorage.setItem("token", response.data.token); // JWT 토큰 저장
                 onLogin();
                 navigate("/menu");
             } else {
@@ -90,6 +80,7 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+
 
 
 
