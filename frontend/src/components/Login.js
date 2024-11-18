@@ -18,7 +18,7 @@ function Login({ onLogin }) {
                 alert("Login successful!");
                 sessionStorage.setItem("token", response.data.token); // JWT 토큰 저장
                 onLogin();
-                navigate("/menu");
+                navigate("/ChooseRestaurant"); // 식당 선택 페이지로 이동
             } else {
                 alert(response.data.message || "Invalid credentials, please try again.");
             }
@@ -80,6 +80,7 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+
 
 
 

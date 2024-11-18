@@ -1,0 +1,63 @@
+/* 공용 CSS */
+
+:root {
+    /* 필요한 색상만 남기기 */
+    --red: #e10707;
+    --lightgray: #f6f3f3;
+    --white: #ffffff;
+    --gray: #cac2c2;
+    --black: #211f1f;
+    /* 폰트 크기 변수 */
+    --font--large: 30px;
+    --font--regular: 24px;
+    --font--small: 18px;
+    --font--ssmall: 14px;
+
+    /* 버튼 크기 및 여백 */
+    --button-padding: 10px 16px;      /* 버튼 패딩 */
+    --button-border-radius: 8px;      /* 버튼 모서리 둥글기 */
+
+    /* 페이지 크기 */
+    --page-width: 375px;             /* 페이지 최대 너비 */
+    --page-height: auto;
+}
+
+
+/* 필요한 폰트 파일만 정의 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-size: var(--font--large);
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-size: var(--font--regular);
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font--small);
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-size: var(--font--ssmall);
+}
+
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Regular;
+    font-size: var(--font--regular);
+}

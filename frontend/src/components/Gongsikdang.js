@@ -1,15 +1,17 @@
-// src/components/Menu.js
 import React, { useEffect, useState } from 'react';
 import api from '../axiosConfig';
 
-function Menu() {
+function Gongsikdang() {
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await api.get("/menu"); // api 인스턴스를 사용하여 요청
+                // 공식당 메뉴만 가져오기
+                const response = await api.get("/menu", {
+                    params: { restaurantName: "공식당" },
+                });
                 setMenuItems(response.data);
             } catch (error) {
                 setError("Failed to fetch menu items");
@@ -22,12 +24,14 @@ function Menu() {
 
     return (
         <div>
-            <h1>School Cafeteria Menu</h1>
+            <h1>Official Cafeteria Menu</h1>
+            {error && <p>{error}</p>}
             <ul>
                 {menuItems.map((item, index) => (
                     <li key={index}>
                         <h2>{item.name}</h2>
-                        <p>Price: {item.price}</p>
+                        <p>Price: {item.price}원</p>
+                        <p>Sector: {item.sector}</p>
                     </li>
                 ))}
             </ul>
@@ -35,7 +39,8 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default Gongsikdang;
+
 
 
 

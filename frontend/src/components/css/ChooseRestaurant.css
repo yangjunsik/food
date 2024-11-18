@@ -1,0 +1,87 @@
+@import url('common.css');
+
+/* 전체 스타일 */
+body {
+    font-family: 'Pretendard-Regular' ; /* Pretendard 폰트 적용 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--lightgray);
+    color: var(--black);
+}
+
+.container {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: var(--font--large); /* 공용 변수로 크기 설정 */
+    color: var(--black); /* 글씨 색상 */
+}
+
+.restaurant-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* 네모들 간의 간격 추가 */
+    margin-bottom: 40px;
+}
+
+.restaurant {
+    text-decoration: none;
+    color: inherit;
+}
+
+.restaurant-box {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white); /* 공용 색상 변수 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.restaurant-box h3 {
+    font-size: var(--font--regular); /* 공용 변수로 크기 설정 */
+    font-weight: 600; /* Pretendard-Regular 600 적용 */
+    color: var(--black); /* 글씨 색상 */
+}
+
+/* 마이페이지 스타일 */
+.mypage {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.mypage-box {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red); /* 공용 색상 변수 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.mypage-box h3 {
+    font-size: var(--font--regular); /* 공용 변수로 크기 설정 */
+    font-weight: 600; /* Pretendard-Regular 600 적용 */
+    color: var(--white);
+}
+
+/* hover 효과 */
+.restaurant-box:hover, .mypage-box:hover {
+    opacity: 0.8;
+}
+
+a{
+    text-decoration: none;
+}
