@@ -1,6 +1,6 @@
 // src/components/Login.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 
@@ -13,22 +13,12 @@ function Login({ onLogin }) {
         event.preventDefault();
 
         try {
-            const response = await axios.post(
-                "http://localhost:8080/user/login", // 엔드포인트 수정 확인
-                {
-                    id, // User ID 필드 (백엔드 요구사항에 맞춤)
-                    password, // Password 필드 (백엔드 요구사항에 맞춤)
-                },
-                {
-                    withCredentials: true // 세션 쿠키 포함 설정
-                }
-            );
-
+            const response = await api.post("/user/login", { id, password });
             if (response.data && response.data.message === "Login successful") {
                 alert("Login successful!");
-                sessionStorage.setItem("user_id", id);
+                sessionStorage.setItem("token", response.data.token); // JWT 토큰 저장
                 onLogin();
-                navigate("/menu");
+                navigate("/ChooseRestaurant"); // 식당 선택 페이지로 이동
             } else {
                 alert(response.data.message || "Invalid credentials, please try again.");
             }
@@ -72,7 +62,7 @@ function Login({ onLogin }) {
                     <div>
                         <a href="#">아이디찾기/</a>
                         <a href="#">비밀번호찾기/</a>
-                        <a href="/user/student-number">회원가입</a>
+                        <a href="#" onClick={() => navigate("/register")}>회원가입</a>
                     </div>
                 </section>
                 <section className="explanation_section">
@@ -90,6 +80,8 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+
+
 
 
 

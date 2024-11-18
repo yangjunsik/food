@@ -1,58 +1,57 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
-import Menu from './components/Menu';
+import Register from './components/Register';
+import ChooseRestaurant from './components/ChooseRestaurant';
+import Gongsikdang from './components/Gongsikdang'; // Gongsikdang 컴포넌트 임포트
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+    useEffect(() => {
+        const token = sessionStorage.getItem("token");
+        setIsAuthenticated(!!token);
+    }, []);
+
+    const handleLogin = () => {
+        setIsAuthenticated(true);
+    };
+
     return (
         <Router>
-            <AuthWrapper setIsAuthenticated={setIsAuthenticated} />
             <Routes>
+                <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                <Route path="/register" element={<Register />} />
+
+                {/* 식당 선택 페이지 */}
                 <Route
-                    path="/login"
-                    element={<Login onLogin={() => setIsAuthenticated(true)} />}
+                    path="/ChooseRestaurant"
+                    element={isAuthenticated ? <ChooseRestaurant /> : <Navigate to="/login" />}
                 />
                 <Route
-                    path="/menu"
-                    element={isAuthenticated ? <Menu /> : <Navigate to="/login" />}
+                    path="/gongsikdang"
+                    element={isAuthenticated ? <Gongsikdang /> : <Navigate to="/login" />}
                 />
-                <Route path="/" element={<Navigate to="/login" />} />
+
+
+                {/* 기본 경로 */}
+                <Route
+                    path="/"
+                    element={<Navigate to={isAuthenticated ? "/choose-restaurant" : "/login"} />}
+                />
             </Routes>
         </Router>
     );
 }
 
-// AuthWrapper: 로그인 상태를 확인하고 세션 유효성을 확인하는 컴포넌트
-function AuthWrapper({ setIsAuthenticated }) {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        // 세션 확인 요청을 보냄
-        axios.get("http://localhost:8080/user/check-auth", { withCredentials: true })
-            .then(response => {
-                if (response.status === 200) {
-                    console.log("Session is valid.");  // 세션 유효성 확인
-                    setIsAuthenticated(true);          // 세션이 유효하면 로그인 상태 유지
-                } else {
-                    console.log("Session is invalid.");
-                    setIsAuthenticated(false);
-                    navigate("/login");
-                }
-            })
-            .catch(error => {
-                console.error("Error during session check:", error);
-                setIsAuthenticated(false);
-                navigate("/login");
-            });
-    }, [navigate, setIsAuthenticated]);
-
-    return null; // 이 컴포넌트 자체는 UI를 렌더링하지 않음
-}
-
 export default App;
+
+
+
+
+
+
+
 
 
