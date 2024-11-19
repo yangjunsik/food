@@ -56,11 +56,24 @@ public class UserController {
     @PostMapping("/checkDuplicateId")
     public ResponseEntity<Map<String, Boolean>> checkDuplicateId(@RequestBody Map<String, String> request) {
         String id = request.get("id");
-        boolean isDuplicate = userService.isIdDuplicated(id);
         Map<String, Boolean> response = new HashMap<>();
-        response.put("isDuplicate", isDuplicate);
-        return ResponseEntity.ok(response);
+
+        if (id == null || id.isEmpty()) {
+            response.put("isDuplicate", false);
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        try {
+            boolean isDuplicate = userService.isIdDuplicated(id);
+            response.put("isDuplicate", isDuplicate);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            System.err.println("아이디 중복 확인 중 오류: " + e.getMessage());
+            response.put("isDuplicate", false);
+            return ResponseEntity.status(500).body(response);
+        }
     }
+
 }
 
 
