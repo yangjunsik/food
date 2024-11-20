@@ -29,41 +29,42 @@ function Login({ onLogin }) {
     };
 
     return (
-        <main>
-            <form onSubmit={handleSubmit}>
-                <div className="logo-circle"></div>
-                {/* 로고 원 */}
-                <span className="login_span">환영합니다!</span>
-                <p>학교 식당 예약 사이트 입니다</p>
-                <section className="login_section">
-                    <label className="id_label">
-                        <input
-                            type="text"
-                            name="id"
-                            placeholder="아이디를 입력하세요"
-                            value={id}
-                            onChange={(e) => setId(e.target.value)}
-                        />
-                    </label>
-                    <label className="pw_label">
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="비밀번호를 입력하세요"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
-                    <button type="submit">
-                        로그인
+        <div className="login-container">
+            <main>
+                <form onSubmit={handleSubmit}>
+                    <div className="logo-circle"></div>
+                    {/* 로고 원 */}
+                    <span className="login_span">환영합니다!</span>
+                    <p>학교 식당 예약 사이트 입니다</p>
+                    <section className="login_section">
+                        <label className="id_label">
+                            <input
+                                type="text"
+                                name="id"
+                                placeholder="아이디를 입력하세요"
+                                value={id}
+                                onChange={(e) => setId(e.target.value)}
+                            />
+                        </label>
+                        <label className="pw_label">
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="비밀번호를 입력하세요"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
+                        <button type="submit">
+                            로그인
+                        </button>
+                    </section>
+                    <button className="signup-button" onClick={() => navigate("/register")}>
+                        회원가입
                     </button>
-                </section>
-                <button className="signup-button" onClick={() => navigate("/register")}>
-                    회원가입
-                </button>
-            </form>
-
-        </main>
+                </form>
+            </main>
+        </div>
     );
 }
 

@@ -5,6 +5,7 @@ import Register from './components/Register';
 import ChooseRestaurant from './components/ChooseRestaurant';
 import Gongsikdang from './components/Gongsikdang'; // Gongsikdang 컴포넌트 임포트
 import InfoRestaurant from './components/InfoRestaurant'; // 컴포넌트 추가
+import Payment from "./components/Payment";
 
 function App() {
     // isAuthenticated를 sessionStorage를 기반으로 관리
@@ -39,6 +40,10 @@ function App() {
                 <Route
                     path="/infoRestaurant"
                     element={isAuthenticated ? <InfoRestaurant /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/payment"
+                    element={isAuthenticated ? <Payment /> : <Navigate to="/login" />}
                 />
 
                 {/* 기본 경로 */}

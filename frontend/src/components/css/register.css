@@ -1,7 +1,7 @@
 @import url('common.css'); /* 공용 CSS 가져오기 */
 
 /* 배경 그라데이션 */
-body {
+.register-container{
     background: linear-gradient(135deg, #ff7eb3, #8e44ad);
     margin: 0;
     padding: 0;
