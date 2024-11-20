@@ -44,7 +44,12 @@ public class UserService {
     }
 
     public boolean isIdDuplicated(String id) {
-        return userMapper.findByUsername(id) != null;
+        try {
+            return userMapper.findByUsername(id) != null;
+        } catch (Exception e) {
+            System.err.println("중복 확인 중 오류 발생: " + e.getMessage());
+            return false;
+        }
     }
 
 
