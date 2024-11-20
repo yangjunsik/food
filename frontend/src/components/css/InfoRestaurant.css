@@ -1,41 +1,85 @@
-.info-restaurant {
-    text-align: center;
-    margin: 20px auto;
-}
-
-.menu-list {
-    list-style-type: none;
-    padding: 0;
-}
-
 .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+.menu-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
-.menu-item h2 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
+.menu-item-details {
+    flex: 1;
+    margin-left: 15px;
 }
 
-.menu-item p {
-    font-size: 1em;
-    margin: 5px 0;
-}
-
-.error {
-    color: red;
-    font-size: 1.2em;
+.quantity-controls {
+    display: flex;
+    align-items: center;
     margin: 10px 0;
 }
+
+.quantity-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.navigate-to-payment-button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.remove-from-cart-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-from-cart-button:hover {
+    background-color: #c82333;
+}
+
