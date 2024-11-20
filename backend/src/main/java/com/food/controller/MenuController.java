@@ -42,5 +42,13 @@ public class MenuController {
         // 인증 실패 시 401 Unauthorized 반환
         return ResponseEntity.status(401).build();
     }
+
+    // 정보센터식당 메뉴 가져오기
+    @GetMapping("/menu/info")
+    public ResponseEntity<List<MenuDTO>> getInfoRestaurantMenu() {
+        System.out.println("정보센터 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getInfoRestaurantMenu();
+        return ResponseEntity.ok(menuList);
+    }
 }
 

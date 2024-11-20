@@ -31,7 +31,7 @@ function ChooseRestaurant() {
                 </Link>
 
                 {/* 정보센터식당 */}
-                <Link to="/infocenter-restaurant" className="restaurant">
+                <Link to="/infoRestaurant" className="restaurant">
                     <div className="restaurant-box infocenter-restaurant">
                         <h3>정보센터식당</h3>
                     </div>
