@@ -1,8 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/ChooseRestaurant.css"; // CSS 파일 연결
 
 function ChooseRestaurant() {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("token"); // 세션 토큰 삭제
+        alert("로그아웃 되었습니다.");
+        navigate("/login"); // 로그인 페이지로 이동
+    };
+
     return (
         <div className="container">
             <h2>식당을 선택하세요</h2>
@@ -38,8 +46,14 @@ function ChooseRestaurant() {
                     </div>
                 </Link>
             </div>
+
+            {/* 로그아웃 버튼 */}
+            <div className="logout">
+                <button onClick={handleLogout}>로그아웃</button>
+            </div>
         </div>
     );
 }
 
 export default ChooseRestaurant;
+

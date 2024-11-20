@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27bd5c3a-2781-4104-aa31-a4b524f1c6ee" name="Changes" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1731333283008" duration="11753000" />
       <workItem from="1731478873692" duration="1065000" />
       <workItem from="1731911377316" duration="6479000" />
-      <workItem from="1732097297197" duration="4262000" />
+      <workItem from="1732097297197" duration="4597000" />
     </task>
     <task id="LOCAL-00001" summary="로그인">
       <option name="closed" value="true" />
