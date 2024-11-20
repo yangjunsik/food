@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
@@ -7,15 +6,18 @@ import ChooseRestaurant from './components/ChooseRestaurant';
 import Gongsikdang from './components/Gongsikdang'; // Gongsikdang 컴포넌트 임포트
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    useEffect(() => {
-        const token = sessionStorage.getItem("token");
-        setIsAuthenticated(!!token);
-    }, []);
+    // isAuthenticated를 sessionStorage를 기반으로 관리
+    const [isAuthenticated, setIsAuthenticated] = useState(
+        !!sessionStorage.getItem("token") // 새로고침 시 토큰 여부를 확인
+    );
 
     const handleLogin = () => {
-        setIsAuthenticated(true);
+        setIsAuthenticated(true); // 로그인 성공 시 상태 업데이트
+    };
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("token"); // 로그아웃 시 토큰 제거
+        setIsAuthenticated(false); // 상태 업데이트
     };
 
     return (
@@ -34,11 +36,10 @@ function App() {
                     element={isAuthenticated ? <Gongsikdang /> : <Navigate to="/login" />}
                 />
 
-
                 {/* 기본 경로 */}
                 <Route
                     path="/"
-                    element={<Navigate to={isAuthenticated ? "/choose-restaurant" : "/login"} />}
+                    element={<Navigate to={isAuthenticated ? "/ChooseRestaurant" : "/login"} />}
                 />
             </Routes>
         </Router>
@@ -46,6 +47,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
