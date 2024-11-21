@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27bd5c3a-2781-4104-aa31-a4b524f1c6ee" name="Changes" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" afterDir="false" />
-    </list>
+    <list default="true" id="27bd5c3a-2781-4104-aa31-a4b524f1c6ee" name="Changes" comment="..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +15,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -54,7 +50,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.FoodApplication.executor": "Run",
-    "git-widget-placeholder": "YJS",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/인텔리제이 정품/food/frontend",
     "list.type.of.created.stylesheet": "CSS",
@@ -109,6 +105,7 @@
       <workItem from="1731478873692" duration="1065000" />
       <workItem from="1731911377316" duration="6479000" />
       <workItem from="1732097297197" duration="4597000" />
+      <workItem from="1732185449474" duration="1110000" />
     </task>
     <task id="LOCAL-00001" summary="로그인">
       <option name="closed" value="true" />
