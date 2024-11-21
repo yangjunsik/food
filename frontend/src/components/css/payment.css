@@ -1,0 +1,90 @@
+@import url('common.css');
+
+/* 공통 스타일 */
+.pay-section{
+    font-family: 'Pretendard-Regular';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+/* container에 스크롤 활성화 */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh; /* 화면의 90% 높이 제한 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    overflow-x: hidden; /* 가로 스크롤 비활성화 */
+}
+
+h2 {
+    margin: 20px 0 10px;
+    font-size: var(--font--regular);
+}
+
+/* 박스 스타일 */
+.white-box {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.transparent-box {
+    background-color: white;
+    border: 1px dashed lightgray;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* 텍스트 크기 줄이기 */
+.white-box p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font--small);
+}
+
+
+/* 정렬 스타일 */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 결제 수단 */
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-option label {
+    font-size: var(--font--small);
+}
+
+/* 버튼 스타일 */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: var(--font--regular);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c0392b;
+}

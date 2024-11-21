@@ -1,107 +1,92 @@
 @import url('common.css');
 
-/* 전체 스타일 */
-body {
-    font-family: 'Pretendard-Regular' ; /* Pretendard 폰트 적용 */
+/* 전체 배경 */
+.ch-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: var(--lightgray);
-    color: var(--black);
+    min-height: 100vh; /* 화면의 전체 높이 */
+    background-color: #f9f9f9; /* 배경색 */
+    padding: 20px; /* 여백 */
 }
 
+/* 메인 컨테이너 */
 .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
     text-align: center;
 }
 
+/* 제목 스타일 */
 h2 {
-    margin-bottom: 30px;
-    font-size: var(--font--large); /* 공용 변수로 크기 설정 */
-    color: var(--black); /* 글씨 색상 */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
 }
 
+/* 레스토랑 리스트 */
 .restaurant-list {
     display: flex;
-    justify-content: space-around;
-    gap: 20px; /* 네모들 간의 간격 추가 */
-    margin-bottom: 40px;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.restaurant {
-    text-decoration: none;
-    color: inherit;
-}
-
+/* 레스토랑 박스 */
 .restaurant-box {
-    width: 200px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--white); /* 공용 색상 변수 */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f1f1f1;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.restaurant-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .restaurant-box h3 {
-    font-size: var(--font--regular); /* 공용 변수로 크기 설정 */
-    font-weight: 600; /* Pretendard-Regular 600 적용 */
-    color: var(--black); /* 글씨 색상 */
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
 }
 
-/* 마이페이지 스타일 */
-.mypage {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
+/* 마이페이지 박스 */
 .mypage-box {
-    width: 200px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--red); /* 공용 색상 변수 */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.mypage-box h3 {
-    font-size: var(--font--regular); /* 공용 변수로 크기 설정 */
-    font-weight: 600; /* Pretendard-Regular 600 적용 */
-    color: var(--white);
+.mypage-box:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
 }
 
-/* hover 효과 */
-.restaurant-box:hover, .mypage-box:hover {
-    opacity: 0.8;
-}
-
-a{
-    text-decoration: none;
-}
-
-.logout {
-    text-align: center;
-    margin-top: 20px;
-}
-
+/* 로그아웃 버튼 */
 .logout button {
-    background-color: #f44336; /* 빨간색 */
+    width: 100%;
+    padding: 12px;
+    background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .logout button:hover {
-    background-color: #d32f2f; /* 어두운 빨간색 */
+    background-color: #c0392b;
+    transform: translateY(-3px);
 }
