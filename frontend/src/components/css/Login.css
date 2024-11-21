@@ -1,7 +1,7 @@
 @import url('common.css'); /* 기존 common.css 활용 */
 
 /* 배경 그라데이션 */
-body {
+.login-container{
     background: linear-gradient(135deg, #ff7eb3, #8e44ad);
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: 'Pretendard-Regular', Arial, sans-serif;
-    overflow: hidden;
+    overflow: hidden; /* 스크롤 숨김 */
 }
 
 /* 메인 컨테이너 */
@@ -134,7 +134,7 @@ p {
 }
 
 .signup-button:hover {
-    color: #ff7eb3;
+    color: gray;
 }
 
 /* 애니메이션 */

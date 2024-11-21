@@ -114,7 +114,8 @@ function Register() {
     };
 
     return (
-        <main>
+        <div className="register-container">
+            <main>
             <div className="logo-circle"></div>
             <h1>회원가입</h1>
             <form onSubmit={handleSubmit}>
@@ -205,6 +206,7 @@ function Register() {
                 </section>
             </form>
         </main>
+        </div>
     );
 }
 

@@ -1,4 +1,4 @@
-// backend/src/main/java/com/food/controller/UserController.java
+//backend/src/main/java/com/food/controller/UserController.java
 package com.food.controller;
 
 import com.food.config.JwtUtil;
@@ -75,7 +75,3 @@ public class UserController {
     }
 
 }
-
-
-
-
