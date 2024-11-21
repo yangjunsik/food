@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27bd5c3a-2781-4104-aa31-a4b524f1c6ee" name="Changes" comment="...">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/css/payment.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
