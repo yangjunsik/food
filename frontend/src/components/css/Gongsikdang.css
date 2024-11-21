@@ -1,0 +1,108 @@
+@import './common.css'; /* 공용 CSS 파일 import */
+
+/* 페이지 스타일 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* 화면 전체 높이 */
+    overflow-y: auto; /* 스크롤 활성화 */
+    background-color: var(--lightgray);
+    padding: 20px;
+    box-sizing: border-box; /* padding 포함 */
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: var(--font--large);
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+/* 코너 그리드: 두 개씩 배치 */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%; /* 부모 너비에 맞춤 */
+    max-width: 1000px; /* 최대 너비 제한 */
+}
+
+/* 각 줄(row) */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* 각 코너 스타일 */
+.zone {
+    flex: 1;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: var(--button-border-radius);
+    padding: 20px;
+    text-align: left; /* 코너 내부 텍스트 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 코너 이름 */
+.zone-name {
+    font-size: var(--font--regular);
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--red);
+    text-align: center; /* 코너 이름은 가운데 정렬 */
+}
+
+/* 메뉴 항목 */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 메뉴 항목 한 줄 */
+.menu-line {
+    display: flex;
+    justify-content: space-between; /* 좌측: 메뉴 이름, 우측: 가격 */
+    font-size: var(--font--regular);
+}
+
+/* 메뉴 이름 스타일 */
+.menu-name {
+    font-weight: bold;
+    color: var(--black);
+}
+
+/* 메뉴 가격 스타일 */
+.menu-price {
+    font-weight: normal;
+    color: var(--gray);
+}
+
+/* 하단 버튼 */
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%; /* 부모 너비에 맞춤 */
+    max-width: 1000px; /* 최대 너비 제한 */
+}
+
+.bottom-button {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--button-border-radius);
+    text-decoration: none;
+    font-size: var(--font--regular);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.bottom-button:hover {
+    background-color: darkred;
+}
