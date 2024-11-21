@@ -5,21 +5,20 @@ import Register from './components/Register';
 import ChooseRestaurant from './components/ChooseRestaurant';
 import Gongsikdang from './components/Gongsikdang'; // Gongsikdang 컴포넌트 임포트
 import InfoRestaurant from './components/InfoRestaurant'; // 컴포넌트 추가
+import MyPage from "./components/MyPage";
+import BarcodePage from "./components/BarcodePage"; // BarcodePage 추가
 import Payment from "./components/Payment";
 
 function App() {
-    // isAuthenticated를 sessionStorage를 기반으로 관리
-    const [isAuthenticated, setIsAuthenticated] = useState(
-        !!sessionStorage.getItem("token") // 새로고침 시 토큰 여부를 확인
-    );
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = sessionStorage.getItem("token");
+        setIsAuthenticated(!!token);
+    }, []);
 
     const handleLogin = () => {
-        setIsAuthenticated(true); // 로그인 성공 시 상태 업데이트
-    };
-
-    const handleLogout = () => {
-        sessionStorage.removeItem("token"); // 로그아웃 시 토큰 제거
-        setIsAuthenticated(false); // 상태 업데이트
+        setIsAuthenticated(true);
     };
 
     return (
@@ -41,6 +40,16 @@ function App() {
                     path="/infoRestaurant"
                     element={isAuthenticated ? <InfoRestaurant /> : <Navigate to="/login" />}
                 />
+                {/* 마이페이지 */}
+                <Route
+                    path="/mypage"
+                    element={isAuthenticated ? <MyPage /> : <Navigate to="/login" />}
+                />
+                {/* 바코드 페이지 */}
+                <Route
+                    path="/barcode" // 바코드 페이지 경로 추가
+                    element={isAuthenticated ? <BarcodePage /> : <Navigate to="/login" />}
+                />
                 <Route
                     path="/payment"
                     element={isAuthenticated ? <Payment /> : <Navigate to="/login" />}
@@ -49,7 +58,7 @@ function App() {
                 {/* 기본 경로 */}
                 <Route
                     path="/"
-                    element={<Navigate to={isAuthenticated ? "/ChooseRestaurant" : "/login"} />}
+                    element={<Navigate to={isAuthenticated ? "/choose-restaurant" : "/login"} />}
                 />
             </Routes>
         </Router>
