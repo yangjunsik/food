@@ -50,5 +50,36 @@ public class MenuController {
         List<MenuDTO> menuList = menuService.getInfoRestaurantMenu();
         return ResponseEntity.ok(menuList);
     }
+
+    @GetMapping("/menu/info/a")
+    public ResponseEntity<List<MenuDTO>> getGongsikdangMenu() {
+        System.out.println("공식당 A 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getGongsikdangMenu();
+        return ResponseEntity.ok(menuList);
+    }
+    @GetMapping("/menu/info/b")
+    public ResponseEntity<List<MenuDTO>> getGongsikdang_BMenu() {
+        System.out.println("공식당 B 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getGongsikdang_BMenu();
+        return ResponseEntity.ok(menuList);
+    }
+    @GetMapping("/menu/info/c")
+    public ResponseEntity<List<MenuDTO>> getGongsikdang_CMenu() {
+        System.out.println("공식당 C 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getGongsikdang_CMenu();
+        return ResponseEntity.ok(menuList);
+    }
+    @GetMapping("/menu/info/d")
+    public ResponseEntity<List<MenuDTO>> getGongsikdang_DMenu() {
+        System.out.println("공식당 D 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getGongsikdang_DMenu();
+        return ResponseEntity.ok(menuList);
+    }
+    @GetMapping("/menu/info/cafe")
+    public ResponseEntity<List<MenuDTO>> getCafeMenu() {
+        System.out.println("카페테리아 첨성 매뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getCafeMenu();
+        return ResponseEntity.ok(menuList);
+    }
 }
 

@@ -11,5 +11,7 @@ public class MenuDTO {
     private String name;
     private String price;
     private String image;
+    private String number;
+    private String restaurantName;
     private String sector;
 }

@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
@@ -8,6 +9,13 @@ import InfoRestaurant from './components/InfoRestaurant';
 import MyPage from "./components/MyPage";
 import BarcodePage from "./components/BarcodePage";
 import Payment from "./components/Payment";
+import Gongsikdang_A from "./components/Gongsikdang_A"; // Gongsikdang_A 컴포넌트 임포트 추가
+import Gongsikdang_B from "./components/Gongsikdang_B";
+import Gongsikdang_C from "./components/Gongsikdang_C";
+import Gongsikdang_D from "./components/Gongsikdang_D";
+import Cafeteria from "./components/Cafeteria";
+
+
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(null); // 초기값 null로 설정
@@ -53,6 +61,27 @@ function App() {
                     path="/infoRestaurant"
                     element={isAuthenticated ? <InfoRestaurant /> : <Navigate to="/login" />}
                 />
+                {/* Gongsikdang_A 라우트 추가 */}
+                <Route
+                    path="/a-details"
+                    element={isAuthenticated ? <Gongsikdang_A /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/b-details"
+                    element={isAuthenticated ? <Gongsikdang_B /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/c-details"
+                    element={isAuthenticated ? <Gongsikdang_C /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/d-details"
+                    element={isAuthenticated ? <Gongsikdang_D /> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/cafeteria-chumseong"
+                    element={isAuthenticated ? <Cafeteria /> : <Navigate to="/login" />}
+                />
                 {/* 마이페이지 */}
                 <Route
                     path="/mypage"
@@ -73,13 +102,13 @@ function App() {
                     path="/"
                     element={<Navigate to={isAuthenticated ? "/chooseRestaurant" : "/login"} />}
                 />
+
             </Routes>
         </Router>
     );
 }
 
 export default App;
-
 
 
 

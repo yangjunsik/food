@@ -19,7 +19,17 @@ public class MenuService {
     }
 
     // 정보센터식당 메뉴 가져오기
-    public List<MenuDTO> getInfoRestaurantMenu() {
-        return menuMapper.getInfoRestaurantMenu();
-    }
+    public List<MenuDTO> getInfoRestaurantMenu() { return menuMapper.getInfoRestaurantMenu(); }
+
+    public List<MenuDTO> getGongsikdangMenu() { return menuMapper.getGongsikdangMenu(); }
+
+    public List<MenuDTO> getGongsikdang_BMenu() { return menuMapper.getGongsikdang_BMenu(); }
+
+    public List<MenuDTO> getGongsikdang_CMenu() { return menuMapper.getGongsikdang_CMenu(); }
+
+    public List<MenuDTO> getGongsikdang_DMenu() { return menuMapper.getGongsikdang_DMenu(); }
+
+    public List<MenuDTO> getCafeMenu() { return menuMapper.getCafeMenu(); }
+
+
 }
