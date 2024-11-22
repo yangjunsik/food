@@ -31,11 +31,6 @@ public class MenuService {
 
     public List<MenuDTO> getCafeMenu() { return menuMapper.getCafeMenu(); }
 
-
-    public List<MenuDTO> getInfoRestaurantMenu() {
-        return menuMapper.getInfoRestaurantMenu();
-    }
-
     // 카페테리아 첨성 메뉴 가져오기
     public List<MenuDTO> getCafeteriaMenu() {
         return menuMapper.getCafeteriaMenu();
