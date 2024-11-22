@@ -8,21 +8,22 @@ function Payment() {
     const navigate = useNavigate();
     const { cart } = location.state || { cart: [] };
 
-    const [paymentMethod, setPaymentMethod] = useState("card");
+    const [paymentMethod, setPaymentMethod] = useState("card"); // 기본 결제 수단: 카드
+    const [pgProvider, setPgProvider] = useState("kakaopay"); // 기본 PG사: 카카오페이
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const pointBalance = 3000; // 예시로 설정한 포인트 잔액
+    const pointBalance = 3000; // 예시 포인트 잔액
     const pointUsage = pointBalance >= totalAmount ? totalAmount : pointBalance;
     const finalAmount = totalAmount - pointUsage;
 
     const handlePayment = () => {
-        const IMP = window.IMP;
-        IMP.init("imp16638230");
+        const IMP = window.IMP; // 아임포트 초기화
+        IMP.init("imp17808248"); // 아임포트 "가맹점 식별코드"
 
-        const merchantUid = `mid_${new Date().getTime()}`;
+        const merchantUid = `mid_${new Date().getTime()}`; // 주문번호 생성
         const paymentData = {
-            pg: "kakaopay",
-            pay_method: paymentMethod,
+            pg: pgProvider, // PG사 (카카오페이 or 토스페이)
+            pay_method: paymentMethod, // 결제 수단
             merchant_uid: merchantUid,
             name: "주문 상품",
             amount: finalAmount,
@@ -33,6 +34,7 @@ function Payment() {
             buyer_postcode: "123-456",
         };
 
+        // 결제 요청
         IMP.request_pay(paymentData, async (response) => {
             if (response.success) {
                 try {
@@ -44,14 +46,15 @@ function Payment() {
                         return;
                     }
 
-                    // POST 요청으로 구매 데이터 전송
+                    // 백엔드로 결제 데이터 전송
                     await axios.post(
-                        "http://localhost:8080/api/purchases", // 명확한 주소 사용
+                        "http://localhost:8080/api/purchases", // 백엔드 API 주소
                         {
                             merchantUid,
                             date: new Date().toISOString(),
                             totalAmount,
                             paymentMethod,
+                            pgProvider,
                             items: cart.map((item) => ({
                                 name: item.name,
                                 quantity: item.quantity,
@@ -129,6 +132,31 @@ function Payment() {
                         <p>최종 결제 금액</p>
                         <p>{finalAmount}원</p>
                     </div>
+                </div>
+
+                {/* PG사 선택 */}
+                <h2>결제 대행사</h2>
+                <div className="pg-option">
+                    <input
+                        type="radio"
+                        id="kakao-payment"
+                        name="pg-provider"
+                        value="kakaopay"
+                        checked={pgProvider === "kakaopay"}
+                        onChange={(e) => setPgProvider(e.target.value)}
+                    />
+                    <label htmlFor="kakao-payment">카카오페이</label>
+                </div>
+                <div className="pg-option">
+                    <input
+                        type="radio"
+                        id="toss-payment"
+                        name="pg-provider"
+                        value="tosspay"
+                        checked={pgProvider === "tosspay"}
+                        onChange={(e) => setPgProvider(e.target.value)}
+                    />
+                    <label htmlFor="toss-payment">토스페이</label>
                 </div>
 
                 {/* 결제 수단 */}
