@@ -13,7 +13,7 @@ function InfoRestaurant() {
         const fetchMenu = async () => {
             try {
                 const response = await api.get("/menu/info", {
-                    params: { restaurantName: "정보센터식당" }
+                    params: { restaurantName: "정보센터식당"}
                 });
                 setMenuItems(response.data);
             } catch (error) {
