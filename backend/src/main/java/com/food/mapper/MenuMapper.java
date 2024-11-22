@@ -13,4 +13,7 @@ public interface MenuMapper {
 
     // 정보센터식당 메뉴 가져오기
     List<MenuDTO> getInfoRestaurantMenu();
+
+    // 카페티리아 첨성 메뉴 가져오기
+    List<MenuDTO> getCafeteriaMenu();
 }

@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ChooseRestaurant from './components/ChooseRestaurant';
 import Gongsikdang from './components/Gongsikdang'; // Gongsikdang 컴포넌트 임포트
+import Cafeteria from "./components/Cafeteria";
 import InfoRestaurant from './components/InfoRestaurant'; // 컴포넌트 추가
 import MyPage from "./components/MyPage";
 import BarcodePage from "./components/BarcodePage"; // BarcodePage 추가
@@ -39,6 +40,11 @@ function App() {
                 <Route
                     path="/infoRestaurant"
                     element={isAuthenticated ? <InfoRestaurant /> : <Navigate to="/login" />}
+                />
+
+                <Route
+                    path="/Cafeteria"
+                    element={isAuthenticated ? <Cafeteria /> : <Navigate to="/login" />}
                 />
                 {/* 마이페이지 */}
                 <Route

@@ -1,108 +1,127 @@
 @import './common.css'; /* 공용 CSS 파일 import */
 
-/* 페이지 스타일 */
+/* 전체 컨테이너 */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh; /* 화면 전체 높이 */
-    overflow-y: auto; /* 스크롤 활성화 */
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    overflow-y: auto;
     background-color: var(--lightgray);
     padding: 20px;
-    box-sizing: border-box; /* padding 포함 */
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* 제목 스타일 */
 h2 {
-    font-size: var(--font--large);
-    color: var(--black);
-    margin-bottom: 20px;
+    font-size: 32px;
+    color: var(--black); /* 글씨 검정색 */
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* 코너 그리드: 두 개씩 배치 */
+/* 코너 그리드 */
 .grid {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 100%; /* 부모 너비에 맞춤 */
-    max-width: 1000px; /* 최대 너비 제한 */
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
 }
 
-/* 각 줄(row) */
+/* 한 줄에 코너 두 개 */
 .row {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* 각 코너 스타일 */
+/* 코너 스타일 */
 .zone {
     flex: 1;
-    background-color: var(--white);
-    border: 1px solid var(--gray);
-    border-radius: var(--button-border-radius);
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
     padding: 20px;
-    text-align: left; /* 코너 내부 텍스트 정렬 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 45%;
+    max-width: 48%;
+    overflow: hidden;
 }
 
 /* 코너 이름 */
 .zone-name {
-    font-size: var(--font--regular);
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--red);
-    text-align: center; /* 코너 이름은 가운데 정렬 */
+    color: #e10707;
+    text-align: center;
 }
 
-/* 메뉴 항목 */
+/* 메뉴 스타일 */
 .menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 메뉴 항목 한 줄 */
+/* 메뉴 한 줄 */
 .menu-line {
-    display: flex;
-    justify-content: space-between; /* 좌측: 메뉴 이름, 우측: 가격 */
-    font-size: var(--font--regular);
+    display: block; /* 줄바꿈 허용 */
+    font-size: 16px;
+    line-height: 1.4;
+    white-space: pre-line;
+    word-break: keep-all;
+    text-align: center;
 }
 
-/* 메뉴 이름 스타일 */
+/* 긴 텍스트 줄바꿈 */
 .menu-name {
     font-weight: bold;
-    color: var(--black);
+    font-size: 14px;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
-/* 메뉴 가격 스타일 */
-.menu-price {
-    font-weight: normal;
-    color: var(--gray);
-}
-
-/* 하단 버튼 */
+/* 하단 버튼 섹션 */
 .bottom-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    width: 100%; /* 부모 너비에 맞춤 */
-    max-width: 1000px; /* 최대 너비 제한 */
+    gap: 15px; /* 버튼 간 간격 */
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
 }
 
+/* 하단 버튼 스타일 */
 .bottom-button {
     background-color: var(--red);
     color: var(--white);
-    padding: 10px 20px;
-    border-radius: var(--button-border-radius);
-    text-decoration: none;
-    font-size: var(--font--regular);
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 18px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    width: 150px; /* 고정된 너비 */
+    height: 50px; /* 고정된 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 버튼 그림자 */
 }
 
 .bottom-button:hover {
-    background-color: darkred;
+    background-color: #c50707; /* hover 색상 변경 */
 }

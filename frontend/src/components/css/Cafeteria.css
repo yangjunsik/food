@@ -1,0 +1,210 @@
+@import url('common.css');
+
+/* 최상위 컨테이너: 배경 및 중앙 정렬 */
+.cafe-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--lightgray);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 식당 컨테이너 */
+.cafe-restaurant {
+    max-width: var(--page-width);
+    width: 100%;
+    background: var(--white);
+    border-radius: var(--button-border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.cafe-restaurant h1 {
+    text-align: center;
+    font-size: var(--font--large);
+    color: var(--red);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 메뉴 리스트 그리드 설정 */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 두 줄로 정렬 */
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+    margin: 0 auto;
+}
+
+/* 개별 메뉴 아이템 */
+.menu-item {
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: var(--button-border-radius);
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 메뉴 이미지 */
+.menu-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--button-border-radius);
+    margin-bottom: 10px;
+}
+
+/* 메뉴 텍스트 */
+.menu-item h2 {
+    font-size: var(--font--small);
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    font-size: var(--font--small);
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* 수량 조절 컨트롤 */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.quantity-controls button {
+    background-color: var(--gray);
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--ssmall);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.quantity-controls button:hover {
+    background-color: var(--red);
+}
+
+/* 담기 버튼 */
+.add-to-cart-button {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--small);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #b50606; /* 어두운 빨간색 */
+}
+
+/* 장바구니 섹션 */
+.cart-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--lightgray);
+    border-radius: var(--button-border-radius);
+    border: 1px solid var(--gray);
+}
+
+/* 장바구니 헤더 */
+.cart-summary h2 {
+    font-size: var(--font--regular);
+    color: var(--red);
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 장바구니 아이템 */
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto; /* 메뉴 이름, 수량, 가격, 제거 버튼 */
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: var(--font--small);
+    white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* 장바구니 아이템 텍스트 */
+.cart-item span {
+    display: inline-block;
+    text-align: center;
+}
+
+.cart-item .cart-item-name {
+    text-align: left;
+    font-weight: bold;
+}
+
+.cart-item .cart-item-quantity {
+    color: var(--black);
+}
+
+/* 가격 스타일 수정 */
+.cart-item .cart-item-price {
+    font-weight: bold;
+    color: var(--red);
+    white-space: nowrap; /* 가격 텍스트 줄바꿈 방지 */
+    text-align: right; /* 오른쪽 정렬로 더욱 깔끔하게 */
+}
+
+/* 장바구니 아이템 제거 버튼 */
+.cart-item button {
+    background-color: var(--gray);
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--ssmall);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cart-item button:hover {
+    background-color: var(--red);
+}
+
+/* 결제 버튼 */
+.navigate-to-payment-button {
+    display: block;
+    width: 100%;
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--regular);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.navigate-to-payment-button:hover {
+    background-color: #b50606;
+}

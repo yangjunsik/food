@@ -25,7 +25,7 @@ function ChooseRestaurant() {
                     </Link>
 
                     {/* 카페테리아 첨성 */}
-                    <Link to="/cafeteria-chumseong" className="restaurant">
+                    <Link to="/cafeteria" className="restaurant">
                         <div className="restaurant-box cafeteria-chumseong">
                             <h3>카페테리아 첨성</h3>
                         </div>
