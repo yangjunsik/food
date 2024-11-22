@@ -4,35 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="207184c9-fe36-407f-b796-55c3c4ed1007" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-    <list default="true" id="d25341dd-53db-4f48-a846-f23e861cebae" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" afterDir="false" />
+    <list default="true" id="edb62e14-245c-4e90-aa82-02423f324559" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/MenuDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/MenuDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-    <list default="true" id="a6302bb6-37a5-4bd2-a57b-e36664fd85c5" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,74 +21,69 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2pCw4G0E1apxkHKf8qnqWlDsOQE" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2pDG2iJJNEMMTFm2Z4V9Klu1sea" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Node.js.Payment.js.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.FoodApplication.executor": "Run",
-    "git-widget-placeholder": "hyon",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/인텔리제이 정품/food/frontend/src/components",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\인텔리제이 정품\food\frontend\src\components" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
-  <component name="RunManager">
-    <configuration name="FoodApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="food" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.food.FoodApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.food.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.FoodApplication" />
-      </list>
-    </recent_temporary>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="a6302bb6-37a5-4bd2-a57b-e36664fd85c5" name="변경" comment="" />
-      <created>1732283181510</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edb62e14-245c-4e90-aa82-02423f324559" name="Changes" comment="" />
+      <created>1732293034924</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732283181510</updated>
-      <workItem from="1732283183892" duration="259000" />
-      <workItem from="1732283510448" duration="474000" />
-      <workItem from="1732284005301" duration="5364000" />
+      <updated>1732293034924</updated>
+      <workItem from="1732293037195" duration="760000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/food/service/UserService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -14,7 +14,6 @@ import Gongsikdang_A from "./components/Gongsikdang_A"; // Gongsikdang_A 컴포�
 import Gongsikdang_B from "./components/Gongsikdang_B";
 import Gongsikdang_C from "./components/Gongsikdang_C";
 import Gongsikdang_D from "./components/Gongsikdang_D";
-import Cafeteria from "./components/Cafeteria";
 
 
 
