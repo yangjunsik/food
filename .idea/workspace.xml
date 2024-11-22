@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="207184c9-fe36-407f-b796-55c3c4ed1007" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/ItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/PurchaseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/PurchaseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/PurchaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/PurchaseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/mybatis/PurchaseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/BarcodePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/BarcodePage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732203266379</updated>
       <workItem from="1732203273671" duration="5674000" />
-      <workItem from="1732258244781" duration="12072000" />
+      <workItem from="1732258244781" duration="12406000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,11 @@ function BarcodePage() {
 
     const [barcodes, setBarcodes] = useState([]);
 
+    // 유니코드 문자열을 Base64로 안전하게 변환하는 함수
+    function encodeToBase64(input) {
+        return btoa(unescape(encodeURIComponent(input)));
+    }
+
     useEffect(() => {
         if (!merchantUid) {
             alert("잘못된 접근입니다.");
@@ -23,7 +28,7 @@ function BarcodePage() {
                 name: item.name,
                 quantity: item.quantity,
                 price: item.price,
-                merchantUid: `${merchantUid}_${item.name}`,
+                merchantUid: encodeToBase64(`${merchantUid}_${item.name}`), // Base64로 변환
                 expiration: Date.now() + 2 * 60 * 60 * 1000, // 유효시간: 2시간
             }));
         };
@@ -44,7 +49,13 @@ function BarcodePage() {
                         <div key={index} className="barcode-item">
                             <p>{barcode.name}</p>
                             {!isExpired ? (
-                                <svg ref={(el) => JsBarcode(el, barcode.merchantUid, { format: "CODE128" })}></svg>
+                                <svg
+                                    ref={(el) => {
+                                        if (el) {
+                                            JsBarcode(el, barcode.merchantUid, { format: "CODE128" });
+                                        }
+                                    }}
+                                ></svg>
                             ) : (
                                 <p className="expired">바코드 만료 (2시간 초과)</p>
                             )}
@@ -57,6 +68,8 @@ function BarcodePage() {
 }
 
 export default BarcodePage;
+
+
 
 
 
