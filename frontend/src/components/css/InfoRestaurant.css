@@ -1,67 +1,81 @@
+@import url('common.css');
+
 /* 최상위 컨테이너: 배경 및 중앙 정렬 */
-.info-section{
-    min-height: 100vh; /* 전체 화면 높이 */
+.info-section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; /* 위에서 시작 */
-    background: linear-gradient(to bottom right, #f3f4f6, #e1e6ea); /* 부드러운 배경 */
+    align-items: center;
+    background: var(--lightgray);
     padding: 20px;
-    overflow-y: auto; /* 스크롤 활성화 */
+    overflow-y: auto;
 }
 
-/* InfoRestaurant 컴포넌트 */
+/* 정보 식당 컨테이너 */
 .info-restaurant {
-    max-width: 1200px; /* 페이지의 가로 폭 제한 */
+    max-width: var(--page-width);
     width: 100%;
-    margin: 0 auto;
+    background: var(--white);
+    border-radius: var(--button-border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.info-restaurant h1 {
+    text-align: center;
+    font-size: var(--font--large);
+    color: var(--red);
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 /* 메뉴 리스트 그리드 설정 */
 .menu-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 각 카드의 최소/최대 크기 설정 */
-    gap: 20px; /* 카드 사이 간격 */
-    list-style: none;
+    grid-template-columns: repeat(2, 1fr); /* 두 줄로 정렬 */
+    gap: 20px;
     padding: 0;
-    margin: 0;
+    list-style: none;
+    margin: 0 auto;
 }
 
 /* 개별 메뉴 아이템 */
 .menu-item {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: var(--button-border-radius);
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .menu-item:hover {
-    transform: scale(1.05); /* 마우스 오버 시 확대 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 강조 효과 */
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 메뉴 이미지 */
 .menu-item img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--button-border-radius);
     margin-bottom: 10px;
 }
 
-/* 메뉴 제목과 설명 */
+/* 메뉴 텍스트 */
 .menu-item h2 {
-    font-size: 1rem;
+    font-size: var(--font--small);
+    color: var(--black);
     margin-bottom: 5px;
-    color: #333;
 }
 
 .menu-item p {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 10px;
+    font-size: var(--font--small);
+    color: var(--red);
+    font-weight: bold;
 }
 
 /* 수량 조절 컨트롤 */
@@ -73,92 +87,125 @@
 }
 
 .quantity-controls button {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--gray);
+    color: var(--white);
     border: none;
     padding: 5px 10px;
     margin: 0 5px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--ssmall);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .quantity-controls button:hover {
-    background-color: #0056b3;
+    background-color: var(--red);
 }
 
 /* 담기 버튼 */
 .add-to-cart-button {
-    background-color: #28a745;
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--small);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s;
 }
 
 .add-to-cart-button:hover {
-    background-color: #218838;
+    background-color: #b50606; /* 어두운 빨간색 */
 }
 
-/* 장바구니 요약 */
+/* 장바구니 섹션 */
 .cart-summary {
     margin-top: 20px;
     padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    background-color: var(--lightgray);
+    border-radius: var(--button-border-radius);
+    border: 1px solid var(--gray);
 }
 
+/* 장바구니 헤더 */
 .cart-summary h2 {
+    font-size: var(--font--regular);
+    color: var(--red);
     margin-bottom: 15px;
-    color: #6a1b9a;
+    font-weight: bold;
+    text-align: center;
 }
 
+/* 장바구니 아이템 */
 .cart-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto; /* 메뉴 이름, 수량, 가격, 제거 버튼 */
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: var(--font--small);
+    white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
 }
 
-/* 빼기 버튼 */
-.remove-from-cart-button {
-    background-color: #dc3545;
-    color: white;
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* 장바구니 아이템 텍스트 */
+.cart-item span {
+    display: inline-block;
+    text-align: center;
+}
+
+.cart-item .cart-item-name {
+    text-align: left;
+    font-weight: bold;
+}
+
+.cart-item .cart-item-quantity {
+    color: var(--black);
+}
+
+/* 가격 스타일 수정 */
+.cart-item .cart-item-price {
+    font-weight: bold;
+    color: var(--red);
+    white-space: nowrap; /* 가격 텍스트 줄바꿈 방지 */
+    text-align: right; /* 오른쪽 정렬로 더욱 깔끔하게 */
+}
+
+/* 장바구니 아이템 제거 버튼 */
+.cart-item button {
+    background-color: var(--gray);
+    color: var(--white);
     border: none;
     padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--ssmall);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.remove-from-cart-button:hover {
-    background-color: #c82333;
+.cart-item button:hover {
+    background-color: var(--red);
 }
 
 /* 결제 버튼 */
 .navigate-to-payment-button {
-    background-color: #ff5722;
-    color: white;
+    display: block;
+    width: 100%;
+    background-color: var(--red);
+    color: var(--white);
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    font-size: var(--font--regular);
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 20px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
 }
 
 .navigate-to-payment-button:hover {
-    background-color: #e64a19;
+    background-color: #b50606;
 }
-
-
-
 

@@ -17,7 +17,7 @@ function Cafeteria() {
                 });
                 const updatedMenu = response.data.map((item) => ({
                     ...item,
-                    price: item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원",
+                    price: Number(item.price), // price를 숫자로 변환
                     quantity: 1, // 기본 수량 초기화
                 }));
                 setMenuItems(updatedMenu);
@@ -70,7 +70,7 @@ function Cafeteria() {
     };
 
     const navigateToPayment = () => {
-        navigate("/payment", { state: { cart } });
+        navigate("/payment", { state: { cart: cart } });
     };
 
     return (
@@ -84,7 +84,7 @@ function Cafeteria() {
                             <img src={item.image} alt={item.name} className="menu-item-image" />
                             <div className="menu-item-details">
                                 <h2>{item.name}</h2>
-                                <p>{item.price}</p>
+                                <p>Price: {item.price}원</p>
                                 <div className="quantity-controls">
                                     <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                                     <span>{item.quantity || 1}</span>
@@ -109,7 +109,7 @@ function Cafeteria() {
                                     <span className="cart-item-name">{cartItem.name}</span>
                                     <span className="cart-item-quantity">{cartItem.quantity}개</span>
                                     <span className="cart-item-price">
-                                        {`${parseInt(cartItem.price.replace(/[^\d]/g, '')) * cartItem.quantity}원`}
+                                        {cartItem.price * cartItem.quantity}원
                                     </span>
                                     <button
                                         className="remove-from-cart-button"

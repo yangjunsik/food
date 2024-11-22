@@ -17,7 +17,7 @@ function Payment() {
 
     const handlePayment = () => {
         const IMP = window.IMP;
-        IMP.init("imp17808248");
+        IMP.init("imp16638230");
 
         const merchantUid = `mid_${new Date().getTime()}`;
         const paymentData = {

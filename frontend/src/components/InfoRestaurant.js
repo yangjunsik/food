@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../axiosConfig";
-import "./css/Cafeteria.css";
+import "./css/InfoRestaurant.css";
 
-function Cafeteria() {
+function InfoRestaurant() {
     const [menuItems, setMenuItems] = useState([]);
     const [cart, setCart] = useState([]);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await api.get("/menu/cafe", {
-                    params: { restaurantName: "카페테리아 첨성" },
                 const response = await api.get("/menu/info", {
-                    params: { restaurantName: "정보센터식당"}
+                    params: { restaurantName: "정보센터식당" },
                 });
                 const updatedMenu = response.data.map((item) => ({
                     ...item,
-                    price: item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원", // 단위 추가
+                    price: Number(item.price), // price를 숫자로 변환
                     quantity: 1, // 기본 수량 초기화
                 }));
                 setMenuItems(updatedMenu);
@@ -70,69 +69,68 @@ function Cafeteria() {
         setCart(cart.filter((cartItem) => cartItem.name !== itemName));
     };
 
-    const clearCart = () => {
-        setCart([]);
-    };
-
     const navigateToPayment = () => {
-        navigate("/payment", { state: { cart } });
+        navigate("/payment", { state: { cart: cart } });
     };
 
     return (
-        <div className="cafeteria-container">
-            <header className="cafeteria-header">
-                <h1>카페테리아 첨성</h1>
-            </header>
-            <div className="cafeteria-content">
-                <div className="menu-grid">
+        <section className="info-section">
+            <div className="info-restaurant">
+                <h1>정보센터식당 메뉴</h1>
+                {error && <p className="error">{error}</p>}
+                <ul className="menu-list">
                     {menuItems.map((item, index) => (
-                        <div key={index} className="menu-item">
-                            <div className="menu-text">
-                                <span className="menu-name">{item.name}</span>
-                                <span className="menu-price">{item.price}</span>
-                            </div>
-                            <div className="quantity-controls">
-                                <button onClick={() => handleQuantityChange(item, -1)}>-</button>
-                                <span>{item.quantity || 1}</span>
-                                <button onClick={() => handleQuantityChange(item, 1)}>+</button>
-                            </div>
-                            <button
-                                className="add-to-cart-button"
-                                onClick={() => handleAddToCart(item)}
-                            >
-                                담기
-                            </button>
-                        </div>
-                    ))}
-                </div>
-                <div className="cart-section">
-                    <ul className="cart-items">
-                        {cart.map((cartItem, index) => (
-                            <li key={index} className="cart-item">
-                                <span className="cart-item-name">{cartItem.name}</span>
-                                <span className="cart-item-quantity">{cartItem.quantity}개</span>
-                                <span className="cart-item-price">
-                                    {`${parseInt(cartItem.price.replace(/[^\d]/g, '')) * cartItem.quantity}원`}
-                                </span>
+                        <li key={index} className="menu-item">
+                            <img src={item.image} alt={item.name} className="menu-item-image" />
+                            <div className="menu-item-details">
+                                <h2>{item.name}</h2>
+                                <p>Price: {item.price}원</p>
+                                <div className="quantity-controls">
+                                    <button onClick={() => handleQuantityChange(item, -1)}>-</button>
+                                    <span>{item.quantity || 1}</span>
+                                    <button onClick={() => handleQuantityChange(item, 1)}>+</button>
+                                </div>
                                 <button
-                                    className="cart-item-remove"
-                                    onClick={() => handleRemoveFromCart(cartItem.name)}
+                                    className="add-to-cart-button"
+                                    onClick={() => handleAddToCart(item)}
                                 >
-                                    ✖
+                                    담기
                                 </button>
-                            </li>
-                        ))}
-                    </ul>
-                    <button className="clear-button" onClick={clearCart}>
-                        전체 삭제
-                    </button>
-                    <button className="payment-button" onClick={navigateToPayment}>
-                        결제하기
-                    </button>
-                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                {cart.length > 0 && (
+                    <div className="cart-summary">
+                        <h2>장바구니</h2>
+                        <ul>
+                            {cart.map((cartItem, index) => (
+                                <li key={index} className="cart-item">
+                                    <span className="cart-item-name">{cartItem.name}</span>
+                                    <span className="cart-item-quantity">{cartItem.quantity}개</span>
+                                    <span className="cart-item-price">
+                                        {cartItem.price * cartItem.quantity}원
+                                    </span>
+                                    <button
+                                        className="remove-from-cart-button"
+                                        onClick={() => handleRemoveFromCart(cartItem.name)}
+                                    >
+                                        ✖
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            className="navigate-to-payment-button"
+                            onClick={navigateToPayment}
+                        >
+                            결제창으로 이동
+                        </button>
+                    </div>
+                )}
             </div>
-        </div>
+        </section>
     );
 }
 
-export default Cafeteria;
+export default InfoRestaurant;
