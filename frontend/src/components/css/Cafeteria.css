@@ -1,7 +1,7 @@
 @import url('common.css');
 
 /* 최상위 컨테이너: 배경 및 중앙 정렬 */
-.info-section {
+.cafe-section {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -11,8 +11,8 @@
     overflow-y: auto;
 }
 
-/* 정보 식당 컨테이너 */
-.info-restaurant {
+/* 식당 컨테이너 */
+.cafe-restaurant {
     max-width: var(--page-width);
     width: 100%;
     background: var(--white);
@@ -22,7 +22,7 @@
 }
 
 /* 헤더 스타일 */
-.info-restaurant h1 {
+.cafe-restaurant h1 {
     text-align: center;
     font-size: var(--font--large);
     color: var(--red);
@@ -208,4 +208,3 @@
 .navigate-to-payment-button:hover {
     background-color: #b50606;
 }
-

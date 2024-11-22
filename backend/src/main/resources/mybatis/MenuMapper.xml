@@ -35,4 +35,9 @@
         FROM menu
         WHERE restaurantName = '카페테리아 첨성'
     </select>
+    <select id="getCafeteriaMenu" resultType="com.food.dto.MenuDTO">
+        SELECT *
+        FROM menu
+        WHERE restaurantName = '카페테리아 첨성'
+    </select>
 </mapper>

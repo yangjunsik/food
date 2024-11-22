@@ -81,5 +81,13 @@ public class MenuController {
         List<MenuDTO> menuList = menuService.getCafeMenu();
         return ResponseEntity.ok(menuList);
     }
+
+    // 카페테리아 첨성 메뉴 가져오기
+    @GetMapping("/menu/cafe")
+    public ResponseEntity<List<MenuDTO>> getCafeteriaMenu() {
+        System.out.println("카페테리아 첨성 메뉴 보내기 성공");
+        List<MenuDTO> menuList = menuService.getCafeteriaMenu();
+        return ResponseEntity.ok(menuList);
+    }
 }
 

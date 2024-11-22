@@ -9,7 +9,10 @@ import lombok.ToString;
 @ToString
 public class MenuDTO {
     private String name;
+    private String sector;
     private String price;
+    private String number;
+    private String restaurantName;
     private String image;
     private String number;
     private String restaurantName;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // React Router 추가
+import { Link } from 'react-router-dom';
 import api from '../axiosConfig';
-import './css/Gongsikdang.css'; // CSS 파일 import
+import './css/Gongsikdang.css';
 
 function Gongsikdang() {
     const [menuItems, setMenuItems] = useState({ a: [], b: [], c: [], d: [] });
@@ -10,8 +10,8 @@ function Gongsikdang() {
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await api.get("/menu", {
-                    params: { restaurantName: "공식당" },
+                const response = await api.get('/menu', {
+                    params: { restaurantName: '공식당' },
                 });
 
                 const menuData = { a: [], b: [], c: [], d: [] };
@@ -25,8 +25,8 @@ function Gongsikdang() {
 
                 setMenuItems(menuData);
             } catch (error) {
-                setError("Failed to fetch menu items");
-                console.error("Error fetching menu:", error);
+                setError('Failed to fetch menu items');
+                console.error('Error fetching menu:', error);
             }
         };
 
@@ -38,9 +38,8 @@ function Gongsikdang() {
             <h2>코너 선택</h2>
             {error && <p className="error">{error}</p>}
 
-            {/* 코너를 두 개씩 배치 */}
+            {/* 코너 메뉴 */}
             <div className="grid">
-                {/* 첫 번째 줄: A 코너와 B 코너 */}
                 <div className="row">
                     <div className="zone">
                         <div className="zone-name">A 코너</div>
@@ -48,7 +47,6 @@ function Gongsikdang() {
                             {menuItems.a.map((item, index) => (
                                 <div key={index} className="menu-line">
                                     <span className="menu-name">{item.name}</span>
-                                    <span className="menu-price">{item.price}원</span>
                                 </div>
                             ))}
                         </div>
@@ -59,14 +57,11 @@ function Gongsikdang() {
                             {menuItems.b.map((item, index) => (
                                 <div key={index} className="menu-line">
                                     <span className="menu-name">{item.name}</span>
-                                    <span className="menu-price">{item.price}원</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-
-                {/* 두 번째 줄: C 코너와 D 코너 */}
                 <div className="row">
                     <div className="zone">
                         <div className="zone-name">C 코너</div>
@@ -74,7 +69,6 @@ function Gongsikdang() {
                             {menuItems.c.map((item, index) => (
                                 <div key={index} className="menu-line">
                                     <span className="menu-name">{item.name}</span>
-                                    <span className="menu-price">{item.price}원</span>
                                 </div>
                             ))}
                         </div>
@@ -85,7 +79,6 @@ function Gongsikdang() {
                             {menuItems.d.map((item, index) => (
                                 <div key={index} className="menu-line">
                                     <span className="menu-name">{item.name}</span>
-                                    <span className="menu-price">{item.price}원</span>
                                 </div>
                             ))}
                         </div>
@@ -93,12 +86,12 @@ function Gongsikdang() {
                 </div>
             </div>
 
-            {/* 하단 네 개의 버튼 */}
+            {/* 하단 버튼 */}
             <div className="bottom-buttons">
-                <Link to="/a-details" className="bottom-button">A 코너</Link>
-                <Link to="/b-details" className="bottom-button">B 코너</Link>
-                <Link to="/c-details" className="bottom-button">C 코너</Link>
-                <Link to="/d-details" className="bottom-button">D 코너</Link>
+                <Link to="/a-details" className="bottom-button">A</Link>
+                <Link to="/b-details" className="bottom-button">B</Link>
+                <Link to="/c-details" className="bottom-button">C</Link>
+                <Link to="/d-details" className="bottom-button">D</Link>
             </div>
         </div>
     );

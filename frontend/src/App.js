@@ -6,6 +6,7 @@ import Register from './components/Register';
 import ChooseRestaurant from './components/ChooseRestaurant';
 import Gongsikdang from './components/Gongsikdang';
 import InfoRestaurant from './components/InfoRestaurant';
+import Cafeteria from './components/Cafeteria';
 import MyPage from "./components/MyPage";
 import BarcodePage from "./components/BarcodePage";
 import Payment from "./components/Payment";
@@ -82,6 +83,12 @@ function App() {
                     path="/cafeteria-chumseong"
                     element={isAuthenticated ? <Cafeteria /> : <Navigate to="/login" />}
                 />
+
+                <Route
+                    path="/Cafeteria"
+                    element={isAuthenticated ? <Cafeteria /> : <Navigate to="/login" />}
+                />
+
                 {/* 마이페이지 */}
                 <Route
                     path="/mypage"

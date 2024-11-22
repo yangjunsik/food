@@ -28,4 +28,7 @@ public interface MenuMapper {
 
     // 카페테리아 첨성 메뉴 가져오기
     List<MenuDTO> getCafeMenu();
+
+    // 카페티리아 첨성 메뉴 가져오기
+    List<MenuDTO> getCafeteriaMenu();
 }
