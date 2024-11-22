@@ -10,10 +10,8 @@ function BarcodePage() {
 
     const [barcodes, setBarcodes] = useState([]);
 
-    // 유니코드 문자열을 Base64로 안전하게 변환하는 함수
-    function encodeToBase64(input) {
-        return btoa(unescape(encodeURIComponent(input)));
-    }
+    // 유니코드 문자열을 Base64로 변환하는 함수
+    const encodeToBase64 = (input) => btoa(unescape(encodeURIComponent(input)));
 
     useEffect(() => {
         if (!merchantUid) {
@@ -22,15 +20,21 @@ function BarcodePage() {
             return;
         }
 
-        // 바코드 생성
+        // 바코드 생성 함수
         const generateBarcodes = () => {
-            return cart.map((item) => ({
-                name: item.name,
-                quantity: item.quantity,
-                price: item.price,
-                merchantUid: encodeToBase64(`${merchantUid}_${item.name}`), // Base64로 변환
-                expiration: Date.now() + 2 * 60 * 60 * 1000, // 유효시간: 2시간
-            }));
+            const generatedBarcodes = [];
+            cart.forEach((item) => {
+                for (let i = 0; i < item.quantity; i++) {
+                    const uniqueUid = `${merchantUid}_${item.name}_${Date.now()}_${Math.random()}`; // 고유 UID 생성
+                    generatedBarcodes.push({
+                        name: item.name,
+                        price: item.price,
+                        merchantUid: encodeToBase64(uniqueUid), // Base64로 변환
+                        expiration: Date.now() + 2 * 60 * 60 * 1000, // 유효시간: 2시간
+                    });
+                }
+            });
+            return generatedBarcodes;
         };
 
         setBarcodes(generateBarcodes());
@@ -45,9 +49,10 @@ function BarcodePage() {
                 <h2>바코드</h2>
                 {barcodes.map((barcode, index) => {
                     const isExpired = Date.now() > barcode.expiration;
+
                     return (
                         <div key={index} className="barcode-item">
-                            <p>{barcode.name}</p>
+                            <p>{barcode.name} - #{index + 1}</p> {/* 순번 표시 */}
                             {!isExpired ? (
                                 <svg
                                     ref={(el) => {
@@ -68,6 +73,9 @@ function BarcodePage() {
 }
 
 export default BarcodePage;
+
+
+
 
 
 

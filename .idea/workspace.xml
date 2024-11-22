@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="207184c9-fe36-407f-b796-55c3c4ed1007" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
