@@ -1,51 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import JsBarcode from "jsbarcode";
 import "./css/BarcodePage.css";
 
 function BarcodePage() {
-    const [selectedItem, setSelectedItem] = useState(null);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { cart, merchantUid } = location.state || { cart: [], merchantUid: null };
 
-    const showBarcode = (item) => {
-        setSelectedItem(item);
-    };
+    const [barcodes, setBarcodes] = useState([]);
+
+    // 유니코드 문자열을 Base64로 안전하게 변환하는 함수
+    function encodeToBase64(input) {
+        return btoa(unescape(encodeURIComponent(input)));
+    }
+
+    useEffect(() => {
+        if (!merchantUid) {
+            alert("잘못된 접근입니다.");
+            navigate("/mypage");
+            return;
+        }
+
+        // 바코드 생성
+        const generateBarcodes = () => {
+            return cart.map((item) => ({
+                name: item.name,
+                quantity: item.quantity,
+                price: item.price,
+                merchantUid: encodeToBase64(`${merchantUid}_${item.name}`), // Base64로 변환
+                expiration: Date.now() + 2 * 60 * 60 * 1000, // 유효시간: 2시간
+            }));
+        };
+
+        setBarcodes(generateBarcodes());
+    }, [cart, merchantUid, navigate]);
 
     return (
         <div className="container">
             <header>
                 <h1>바코드 확인</h1>
             </header>
-            <section className="purchase-history">
-                <h3>나의 구매 내역</h3>
-                <ul>
-                    <li>
-                        <a href="#" onClick={() => showBarcode("돈까스 마요")}>
-                            2024-11-10 - 돈까스 마요 - 5,000원
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onClick={() => showBarcode("뚝배기알밥")}>
-                            2024-11-08 - 뚝배기알밥 - 5,000원
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onClick={() => showBarcode("떡라면")}>
-                            2024-11-06 - 떡라면 - 3,000원
-                        </a>
-                    </li>
-                </ul>
+            <section id="barcode-section">
+                <h2>바코드</h2>
+                {barcodes.map((barcode, index) => {
+                    const isExpired = Date.now() > barcode.expiration;
+                    return (
+                        <div key={index} className="barcode-item">
+                            <p>{barcode.name}</p>
+                            {!isExpired ? (
+                                <svg
+                                    ref={(el) => {
+                                        if (el) {
+                                            JsBarcode(el, barcode.merchantUid, { format: "CODE128" });
+                                        }
+                                    }}
+                                ></svg>
+                            ) : (
+                                <p className="expired">바코드 만료 (2시간 초과)</p>
+                            )}
+                        </div>
+                    );
+                })}
             </section>
-            {selectedItem && (
-                <section id="barcode-section">
-                    <h3>구매 바코드</h3>
-                    <p id="selected-item">{selectedItem}</p>
-                    <img
-                        id="barcode-image"
-                        src="https://via.placeholder.com/150x50.png?text=Barcode"
-                        alt="바코드 이미지"
-                    />
-                </section>
-            )}
         </div>
     );
 }
 
 export default BarcodePage;
+
+
+
+
+

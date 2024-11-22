@@ -13,6 +13,8 @@ function Cafeteria() {
             try {
                 const response = await api.get("/menu/cafe", {
                     params: { restaurantName: "카페테리아 첨성" },
+                const response = await api.get("/menu/info", {
+                    params: { restaurantName: "정보센터식당"}
                 });
                 const updatedMenu = response.data.map((item) => ({
                     ...item,
@@ -21,6 +23,7 @@ function Cafeteria() {
                 }));
                 setMenuItems(updatedMenu);
             } catch (error) {
+                setError("Failed to fetch menu items");
                 console.error("Error fetching menu:", error);
             }
         };

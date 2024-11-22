@@ -27,7 +27,6 @@ public class UserController {
         Map<String, String> response = new HashMap<>();
 
         if (isAuthenticated) {
-            System.out.println("로그인 정보보내기 성공");
             String token = jwtUtil.generateToken(userDTO.getId());
             response.put("message", "Login successful");
             response.put("token", token);
@@ -44,7 +43,6 @@ public class UserController {
         Map<String, String> response = new HashMap<>();
 
         if (isRegistered) {
-            System.out.println("회원가입 벡엔드 정보보내기 성공");
             response.put("message", "Registration successful");
             return ResponseEntity.ok(response);
         } else {
@@ -68,10 +66,8 @@ public class UserController {
             response.put("isDuplicate", isDuplicate);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            System.err.println("아이디 중복 확인 중 오류: " + e.getMessage());
             response.put("isDuplicate", false);
             return ResponseEntity.status(500).body(response);
         }
     }
-
 }

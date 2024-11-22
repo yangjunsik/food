@@ -7,6 +7,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
 }
 
 header h1 {
@@ -19,6 +20,7 @@ header h1 {
     list-style-type: none;
     padding: 0;
     font-size: var(--font--ssmall);
+    margin: 10px 0;
 }
 
 .purchase-history li {
@@ -27,13 +29,34 @@ header h1 {
     padding-bottom: 5px;
 }
 
+.purchase-history li button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
 .purchase-history li:hover {
     background-color: var(--lightgray);
 }
 
 #barcode-section {
     margin-top: 20px;
-    padding: 10px;
+    padding: 20px;
     background: var(--lightgray);
     border-radius: 8px;
+    text-align: center;
 }
+
+#selected-item, #selected-order {
+    font-size: var(--font--regular);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+svg {
+    margin-top: 10px;
+}
+
