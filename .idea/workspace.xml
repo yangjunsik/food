@@ -5,37 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="372c1986-c1b5-45cf-958e-9e2f73baa0ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images4/카카오페이-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images4/토스페이-removebg-preview.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "Spring Boot.FoodApplication.executor": "Run",
-    "git-widget-placeholder": "YJS",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "C:\\인텔리제이\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;Spring Boot.FoodApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;YJS&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\인텔리제이\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\인텔리제이 정품\food\frontend\public\images4" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FoodApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="food" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.food.FoodApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <servers />
   </component>
