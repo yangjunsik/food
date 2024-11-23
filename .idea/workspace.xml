@@ -6,18 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="372c1986-c1b5-45cf-958e-9e2f73baa0ed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ChooseRestaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/Login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/css/payment.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/payment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;Spring Boot.FoodApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;YJS&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hyon&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\인텔리제이\\IntelliJ IDEA 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;
   }
@@ -76,5 +76,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/Login.js</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

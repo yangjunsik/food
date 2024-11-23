@@ -14,7 +14,7 @@ function ChooseRestaurant() {
     return (
         <section className="ch-section">
             <div className="container">
-                <h2>식당을 선택하세요</h2>
+                <h2>식당 선택</h2>
 
                 <div className="restaurant-list">
                     {/* 공식당 */}

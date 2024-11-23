@@ -2,6 +2,7 @@
 
 /* 전체 배경 */
 .ch-section {
+    background: var(--lightgray);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +25,7 @@
 /* 제목 스타일 */
 h2 {
     margin-bottom: 20px;
-    font-size: 1.5em;
+    font-size: em;
     color: #333;
 }
 
@@ -61,19 +62,19 @@ h2 {
 /* 마이페이지 박스 */
 .mypage-box {
     padding: 18px 25px; /* 버튼 크기 증가 */
-    background-color: #e74c3c;
+    background-color: #e10707;
     color: white;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
-    font-size: 1.1em; /* 약간 더 큰 글씨 */
+    font-size: 1em; /* 약간 더 큰 글씨 */
     display: flex;
     align-items: center; /* 아이콘과 텍스트 정렬 */
     gap: 10px; /* 아이콘과 텍스트 간격 */
 }
 
 .mypage-box:hover {
-    background-color: #c0392b;
+    background-color: #e10707;
     transform: translateY(-3px);
 }
 
@@ -81,7 +82,7 @@ h2 {
 .logout button {
     width: 100%;
     padding: 15px; /* 버튼 크기 약간 증가 */
-    background-color: #e74c3c;
+    background-color: #e10707;
     color: white;
     border: none;
     border-radius: 10px; /* 둥글기 수정 */
@@ -92,7 +93,17 @@ h2 {
 }
 
 .logout button:hover {
-    background-color: #c0392b;
+    background-color: #e10707;
     transform: translateY(-3px);
+}
+
+
+a {
+    text-decoration: none; /* 모든 링크의 밑줄 제거 */
+    color: inherit; /* 기본 텍스트 색상 상속 (선택 사항) */
+}
+
+a:hover {
+    text-decoration: none; /* 호버 시에도 밑줄 제거 */
 }
 

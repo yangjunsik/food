@@ -2,7 +2,7 @@
 
 /* 배경 그라데이션 */
 .register-container{
-    background: linear-gradient(135deg, #ff7eb3, #8e44ad);
+    background: linear-gradient(135deg, #ffb3b3, #fffefe);
     margin: 0;
     padding: 0;
     display: flex;
@@ -29,7 +29,7 @@ main {
 .logo-circle {
     width: 90px;
     height: 90px;
-    background: linear-gradient(135deg, #ff7eb3, #8e44ad);
+    background: linear-gradient(135deg, #ffb3b3, #fffefe);
     border-radius: 50%;
     margin: -70px auto 30px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -77,7 +77,7 @@ h1 {
 }
 
 .form-section input:focus {
-    border-bottom: 1px solid #8e44ad;
+    border-bottom: 1px solid #ffb3b3;
     outline: none;
 }
 
@@ -89,7 +89,7 @@ h1 {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    background: linear-gradient(135deg, #8e44ad, #ff7eb3); /* 그라데이션 */
+    background: linear-gradient(135deg, #ffb3b3, #fffefe); /* 그라데이션 */
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -115,7 +115,7 @@ h1 {
     padding: 12px;
     font-size: 14px;
     font-weight: 600;
-    background: linear-gradient(135deg, #8e44ad, #ff7eb3);
+    background: linear-gradient(135deg, #ffb3b3, #fffefe);
     border: none;
     border-radius: 50px;
     color: white;
@@ -134,16 +134,16 @@ h1 {
     font-size: 14px;
     font-weight: 600;
     background: #ffffff;
-    border: 2px solid #8e44ad;
+    border: 2px solid #ffb3b3;
     border-radius: 50px;
-    color: #8e44ad;
+    color: #ffb3b3;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .register-section #cancel-btn:hover {
     background-color: #f9f9f9;
-    color: #ff7eb3;
+    color: #ffb3b3;
 }
 
 /* 에러 메시지 스타일 */

@@ -12,7 +12,7 @@ function Payment() {
     const [pgProvider, setPgProvider] = useState("html5_inicis"); // 기본 PG사: 이니시스 (신용카드)
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const pointBalance = 3000; // 예시 포인트 잔액
+    const pointBalance = 0; // 예시 포인트 잔액
     const pointUsage = pointBalance >= totalAmount ? totalAmount : pointBalance;
     const finalAmount = totalAmount - pointUsage;
 
