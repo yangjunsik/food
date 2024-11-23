@@ -109,7 +109,7 @@ function InfoRestaurant() {
                                 </div>
                                 <button
                                     className="add-to-cart-button"
-                                    onClick={() => handleAddToCart(item)}
+                                    onClick={() => handleAddToCart(item, item.quantity || 1)}
                                 >
                                     담기
                                 </button>

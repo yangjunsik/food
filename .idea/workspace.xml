@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="372c1986-c1b5-45cf-958e-9e2f73baa0ed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BarcodePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_A.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_B.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_C.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Gongsikdang_D.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InfoRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/InfoRestaurant.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/BarcodePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/BarcodePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/ChooseRestaurant.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/MyPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/MyPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/css/payment.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/payment.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
