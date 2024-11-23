@@ -35,4 +35,19 @@ public class MenuService {
     public List<MenuDTO> getCafeteriaMenu() {
         return menuMapper.getCafeteriaMenu();
     }
+
+    public boolean reduceMenuQuantity(String name, int quantity) {
+        MenuDTO menu = menuMapper.getMenuList().stream()
+                .filter(m -> m.getName().equals(name))
+                .findFirst().orElse(null);
+
+        if (menu != null && Integer.parseInt(menu.getNumber()) >= quantity) {
+            menuMapper.reduceMenuQuantity(name, quantity);
+            return true;
+        }
+        return false; // 재고 부족 시 false 반환
+    }
+
+
+
 }

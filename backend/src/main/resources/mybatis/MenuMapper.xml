@@ -40,4 +40,12 @@
         FROM menu
         WHERE restaurantName = '카페테리아 첨성'
     </select>
+
+    <update id="reduceMenuQuantity">
+        UPDATE menu
+        SET number = number - #{quantity}
+        WHERE name = #{name} AND number >= #{quantity}
+    </update>
+
+
 </mapper>

@@ -33,9 +33,19 @@
       <change afterPath="$PROJECT_DIR$/frontend/public/images3/c왕돈가스.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/public/images3/c왕치즈돈가스.JPG" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/public/images3/c치즈돈가스.jpg" afterDir="false" />
+    <list default="true" id="445d8873-3c3c-4da7-b2d9-7acb69dc19e8" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/MenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mybatis/MenuMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Cafeteria.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/css/Cafeteria.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/css/Cafeteria.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/controller/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/PurchaseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/dto/PurchaseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/PurchaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/food/mapper/PurchaseMapper.java" afterDir="false" />
@@ -53,6 +63,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2pEPtdRRs1LE0yMrXyIE1Nz0Xsk" />
   <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
@@ -63,8 +78,26 @@
   <component name="ProjectId" id="2pENNxRJ3jvhvpH2Ok4G5B5mCsA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.FoodApplication.executor": "Run",
+    "git-widget-placeholder": "hyon",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RequestMappingsPanelOrder0": "0",
@@ -83,13 +116,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\인텔리제이 정품\food\frontend\public\image2" />
-      <recent name="C:\인텔리제이 정품\food\frontend\public\image1" />
-      <recent name="C:\인텔리제이 정품\food\frontend\public\image3" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,13 +124,18 @@
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="445d8873-3c3c-4da7-b2d9-7acb69dc19e8" name="변경" comment="" />
+      <created>1732328486006</created>
     <task active="true" id="Default" summary="Default task">
       <changelist id="62fb6bb3-d95e-4525-9fbf-2b04e0492e09" name="Changes" comment="" />
       <created>1732327246863</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+      <updated>1732328486006</updated>
+      <workItem from="1732328488476" duration="8763000" />
       <updated>1732327246863</updated>
       <workItem from="1732327253171" duration="9857000" />
     </task>
@@ -124,7 +155,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="YJS" />
+                        <option value="origin/usun" />
                       </list>
                     </value>
                   </entry>

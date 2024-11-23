@@ -10,8 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MenuController {
@@ -88,6 +91,35 @@ public class MenuController {
         System.out.println("카페테리아 첨성 메뉴 보내기 성공");
         List<MenuDTO> menuList = menuService.getCafeteriaMenu();
         return ResponseEntity.ok(menuList);
+    }
+
+    @PostMapping("/menu/reduce")
+    public ResponseEntity<String> reduceMenuQuantity(@RequestHeader("Authorization") String token,
+                                                     @RequestBody Map<String, Object> payload) {
+
+
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+
+            try {
+                Claims claims = jwtUtil.extractClaims(token);
+                String userId = claims.getSubject();
+
+                if (userId != null) {
+                    String name = (String) payload.get("name");
+                    int quantity = (int) payload.get("quantity");
+
+                    if (menuService.reduceMenuQuantity(name, quantity)) {
+                        return ResponseEntity.ok("재고 감소 완료");
+                    } else {
+                        return ResponseEntity.status(400).body("재고 부족");
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid JWT Token: " + e.getMessage());
+            }
+        }
+        return ResponseEntity.status(401).build();
     }
 
 }
