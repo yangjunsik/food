@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import api from '../axiosConfig';
 import './css/Gongsikdang.css';
 
 function Gongsikdang() {
     const [menuItems, setMenuItems] = useState({ a: [], b: [], c: [], d: [] });
     const [error, setError] = useState(null);
+    const navigate = useNavigate(); // useNavigate
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -35,6 +36,24 @@ function Gongsikdang() {
 
     return (
         <div className="container">
+            {/* 상단 버튼 영역 */}
+            <div className="top-buttons">
+                {/* 뒤로 버튼 */}
+                <button
+                    className="top-button back-button"
+                    onClick={() => navigate(-1)} // 이전 페이지로 이동
+                >
+                    뒤로
+                </button>
+
+                {/* 홈 버튼 */}
+                <button
+                    className="top-button home-button"
+                    onClick={() => navigate('/chooseRestaurant')} // ChooseRestaurant.js로 이동
+                >
+                    홈
+                </button>
+            </div>
             <h2>코너 선택</h2>
             {error && <p className="error">{error}</p>}
 

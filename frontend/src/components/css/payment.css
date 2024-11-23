@@ -1,8 +1,6 @@
-@import url('common.css');
-
 /* 공통 스타일 */
-.pay-section{
-    font-family: 'Pretendard-Regular';
+.pay-section {
+    font-family: 'Pretendard-Regular', sans-serif; /* 폰트 설정 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +9,7 @@
     background-color: white;
 }
 
-/* container에 스크롤 활성화 */
+/* container 스타일 */
 .container {
     background-color: white;
     padding: 20px;
@@ -19,14 +17,16 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    max-height: 90vh; /* 화면의 90% 높이 제한 */
-    overflow-y: auto; /* 세로 스크롤 활성화 */
-    overflow-x: hidden; /* 가로 스크롤 비활성화 */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
+/* 제목 스타일 */
 h2 {
     margin: 20px 0 10px;
-    font-size: var(--font--regular);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
 }
 
 /* 박스 스타일 */
@@ -38,53 +38,84 @@ h2 {
     margin-bottom: 20px;
 }
 
-.transparent-box {
-    background-color: white;
-    border: 1px dashed lightgray;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-/* 텍스트 크기 줄이기 */
-.white-box p {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font--small);
-}
-
-
-/* 정렬 스타일 */
 .flex-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* 결제 수단 */
-.payment-option {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+/* 결제 방법 스타일 */
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 레이아웃 */
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-.payment-option label {
-    font-size: var(--font--small);
+.method-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    height: 120px; /* 고정 높이 */
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.method-box img {
+    width: 60px; /* 이미지 크기 */
+    height: 60px;
+    margin-bottom: 10px; /* 텍스트와 이미지 간격 */
+}
+
+.method-box p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.method-box.selected {
+    background-color: #e74c3c;
+    color: white;
+    border: 1px solid #c0392b;
+}
+
+.method-box:hover {
+    background-color: #f0f0f0;
 }
 
 /* 버튼 스타일 */
-button {
+button.submit-btn {
     width: 100%;
     padding: 10px;
     background-color: #e74c3c;
     color: white;
-    font-size: var(--font--regular);
+    font-size: 16px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
 }
 
-button:hover {
+button.submit-btn:hover {
     background-color: #c0392b;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    .payment-methods {
+        grid-template-columns: 1fr; /* 1열 레이아웃 */
+    }
+
+    .method-box {
+        height: 100px; /* 높이 축소 */
+    }
+
+    .submit-btn {
+        font-size: 14px; /* 버튼 폰트 크기 조정 */
+    }
 }

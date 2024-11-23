@@ -8,7 +8,7 @@ function Payment() {
     const navigate = useNavigate();
     const { cart } = location.state || { cart: [] };
 
-    const [paymentMethod, setPaymentMethod] = useState("card"); // 기본 결제 수단: 카드
+    const [selectedPayment, setSelectedPayment] = useState("credit-card"); // 기본 결제 수단: 신용카드
     const [pgProvider, setPgProvider] = useState("kakaopay"); // 기본 PG사: 카카오페이
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -23,7 +23,7 @@ function Payment() {
         const merchantUid = `mid_${new Date().getTime()}`; // 주문번호 생성
         const paymentData = {
             pg: pgProvider, // PG사 (카카오페이 or 토스페이)
-            pay_method: paymentMethod, // 결제 수단
+            pay_method: selectedPayment, // 결제 수단
             merchant_uid: merchantUid,
             name: "주문 상품",
             amount: finalAmount,
@@ -53,7 +53,7 @@ function Payment() {
                             merchantUid,
                             date: new Date().toISOString(),
                             totalAmount,
-                            paymentMethod,
+                            paymentMethod: selectedPayment,
                             pgProvider,
                             items: cart.map((item) => ({
                                 name: item.name,
@@ -125,78 +125,34 @@ function Payment() {
                     </div>
                 </div>
 
-                {/* 충전 포인트 */}
-                <h2>충전포인트</h2>
-                <div className="white-box">
-                    <div className="flex-container">
-                        <p>포인트 잔액</p>
-                        <p>{pointBalance}원</p>
-                    </div>
-                    <div className="transparent-box">
-                        <div className="flex-container">
-                            <p>사용 포인트</p>
-                            <p>{pointUsage}원</p>
-                        </div>
-                    </div>
-                </div>
 
-                {/* 총 결제 금액 */}
-                <h2>총 결제 금액</h2>
-                <div className="white-box">
-                    <div className="flex-container">
-                        <p>최종 결제 금액</p>
-                        <p>{finalAmount}원</p>
+                {/* 결제 방법 */}
+                <h2>결제 방법</h2>
+                <div className="payment-methods">
+                    <div
+                        className={`method-box ${selectedPayment === "credit-card" ? "selected" : ""}`}
+                        onClick={() => setSelectedPayment("credit-card")}
+                    >
+                        <p>신용·체크카드</p>
                     </div>
-                </div>
-
-                {/* PG사 선택 */}
-                <h2>결제 대행사</h2>
-                <div className="pg-option">
-                    <input
-                        type="radio"
-                        id="kakao-payment"
-                        name="pg-provider"
-                        value="kakaopay"
-                        checked={pgProvider === "kakaopay"}
-                        onChange={(e) => setPgProvider(e.target.value)}
-                    />
-                    <label htmlFor="kakao-payment">카카오페이</label>
-                </div>
-                <div className="pg-option">
-                    <input
-                        type="radio"
-                        id="toss-payment"
-                        name="pg-provider"
-                        value="tosspay"
-                        checked={pgProvider === "tosspay"}
-                        onChange={(e) => setPgProvider(e.target.value)}
-                    />
-                    <label htmlFor="toss-payment">토스페이</label>
-                </div>
-
-                {/* 결제 수단 */}
-                <h2>결제 수단</h2>
-                <div className="payment-option">
-                    <input
-                        type="radio"
-                        id="card-payment"
-                        name="payment-method"
-                        value="card"
-                        checked={paymentMethod === "card"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <label htmlFor="card-payment">카드 간편결제</label>
-                </div>
-                <div className="payment-option">
-                    <input
-                        type="radio"
-                        id="simple-account"
-                        name="payment-method"
-                        value="trans"
-                        checked={paymentMethod === "trans"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <label htmlFor="simple-account">계좌 간편결제</label>
+                    <div
+                        className={`method-box ${selectedPayment === "kakaopay" ? "selected" : ""}`}
+                        onClick={() => {
+                            setSelectedPayment("kakaopay");
+                            setPgProvider("kakaopay");
+                        }}
+                    >
+                        <img src="/images4/카카오페이-removebg-preview.png" alt="카카오페이" className="method-icon" />
+                    </div>
+                    <div
+                        className={`method-box ${selectedPayment === "tosspay" ? "selected" : ""}`}
+                        onClick={() => {
+                            setSelectedPayment("tosspay");
+                            setPgProvider("tosspay");
+                        }}
+                    >
+                        <img src="/images4/토스페이-removebg-preview.png" alt="토스페이" className="method-icon" />
+                    </div>
                 </div>
 
                 {/* 결제하기 버튼 */}
@@ -209,6 +165,7 @@ function Payment() {
 }
 
 export default Payment;
+
 
 
 
