@@ -17,6 +17,7 @@ function Cafeteria() {
                 });
                 const updatedMenu = response.data.map((item) => ({
                     ...item,
+                    name: item.name.trim(), // 공백 제거
                     price: Number(item.price), // price를 숫자로 변환
                     quantity: 1, // 기본 수량 초기화
                 }));
@@ -81,10 +82,18 @@ function Cafeteria() {
                 <ul className="menu-list">
                     {menuItems.map((item, index) => (
                         <li key={index} className="menu-item">
-                            <img src={item.image} alt={item.name} className="menu-item-image" />
+                            {/* 메뉴 이미지 */}
+                            <img
+                                src={`/images3/${item.name.replace(/\s/g, "")}.jpg`}
+                                alt={item.name}
+                                className="menu-item-image"
+                                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                                onError={(e) => (e.target.src = "/images3/default.jpg")} // 기본 이미지
+                            />
+                            {/* 메뉴 이름 */}
+                            <h3 className="menu-item-name">{item.name}</h3>
                             <div className="menu-item-details">
-                                <h2>{item.name}</h2>
-                                <p>Price: {item.price}원</p>
+                                <p>가격: {item.price}원</p>
                                 <div className="quantity-controls">
                                     <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                                     <span>{item.quantity || 1}</span>
