@@ -31,4 +31,10 @@ public interface MenuMapper {
 
     // 카페티리아 첨성 메뉴 가져오기
     List<MenuDTO> getCafeteriaMenu();
+
+    void reduceMenuQuantity(String name, int quantity);
+
+
+
+
 }
