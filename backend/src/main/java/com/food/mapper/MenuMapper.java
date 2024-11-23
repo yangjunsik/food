@@ -3,6 +3,7 @@ package com.food.mapper;
 
 import com.food.dto.MenuDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -32,7 +33,9 @@ public interface MenuMapper {
     // 카페티리아 첨성 메뉴 가져오기
     List<MenuDTO> getCafeteriaMenu();
 
-    void reduceMenuQuantity(String name, int quantity);
+    MenuDTO getMenuByName(@Param("name") String name); // 매뉴 이름으로 조회
+
+    void reduceMenuQuantity(@Param("name") String name, @Param("quantity") int quantity); // 재고 감소
 
 
 

@@ -94,6 +94,8 @@ function InfoRestaurant() {
                             <h3 className="menu-item-name">{item.name}</h3>
                             <div className="menu-item-details">
                                 <p>가격: {item.price}원</p>
+                                {/* 남은 수량 표시 */}
+                                <p>남은 수량: {item.number || 0}개</p>
                                 <div className="quantity-controls">
                                     <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                                     <span>{item.quantity || 1}</span>

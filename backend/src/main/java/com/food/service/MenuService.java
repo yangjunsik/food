@@ -37,15 +37,13 @@ public class MenuService {
     }
 
     public boolean reduceMenuQuantity(String name, int quantity) {
-        MenuDTO menu = menuMapper.getMenuList().stream()
-                .filter(m -> m.getName().equals(name))
-                .findFirst().orElse(null);
+        MenuDTO menu = menuMapper.getMenuByName(name); // DB에서 직접 매뉴 조회
 
         if (menu != null && Integer.parseInt(menu.getNumber()) >= quantity) {
-            menuMapper.reduceMenuQuantity(name, quantity);
+            menuMapper.reduceMenuQuantity(name, quantity); // 재고 감소 쿼리 실행
             return true;
         }
-        return false; // 재고 부족 시 false 반환
+        return false; // 재고가 부족하면 false 반환
     }
 
 

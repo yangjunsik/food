@@ -94,9 +94,9 @@ public class MenuController {
     }
 
     @PostMapping("/menu/reduce")
-    public ResponseEntity<String> reduceMenuQuantity(@RequestHeader("Authorization") String token,
-                                                     @RequestBody Map<String, Object> payload) {
-
+    public ResponseEntity<String> reduceMenuQuantity(
+            @RequestHeader("Authorization") String token,
+            @RequestBody List<Map<String, Object>> cart) {
 
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
@@ -106,21 +106,26 @@ public class MenuController {
                 String userId = claims.getSubject();
 
                 if (userId != null) {
-                    String name = (String) payload.get("name");
-                    int quantity = (int) payload.get("quantity");
+                    for (Map<String, Object> item : cart) {
+                        String name = (String) item.get("name");
+                        int quantity = (int) item.get("quantity");
 
-                    if (menuService.reduceMenuQuantity(name, quantity)) {
-                        return ResponseEntity.ok("재고 감소 완료");
-                    } else {
-                        return ResponseEntity.status(400).body("재고 부족");
+                        boolean isReduced = menuService.reduceMenuQuantity(name, quantity);
+
+                        if (!isReduced) {
+                            return ResponseEntity.status(400).body("재고 부족: " + name);
+                        }
                     }
+                    return ResponseEntity.ok("모든 재고 감소 완료");
                 }
             } catch (Exception e) {
                 System.out.println("Invalid JWT Token: " + e.getMessage());
+                return ResponseEntity.status(401).body("Invalid Token");
             }
         }
-        return ResponseEntity.status(401).build();
+        return ResponseEntity.status(401).body("Unauthorized");
     }
+
 
 }
 

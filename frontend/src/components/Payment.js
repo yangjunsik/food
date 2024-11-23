@@ -70,21 +70,19 @@ function Payment() {
                     );
 
                     // **재고 감소 요청 추가**
-                    await axios.post(
+                    const reduceStockResponse = await axios.post(
                         "http://localhost:8080/menu/reduce", // 백엔드 재고 감소 API 주소
-                        {
-                            items: cart.map((item) => ({
-                                name: item.name,
-                                quantity: item.quantity,
-                            })),
-                        },
+                        cart.map((item) => ({
+                            name: item.name,
+                            quantity: item.quantity,
+                        })),
                         {
                             headers: {
                                 Authorization: `Bearer ${token}`, // JWT 토큰 전달
                             },
                         }
                     );
-                    console.log("전송된 데이터:", cart.map((item) => ({ name: item.name, quantity: item.quantity })));
+                    console.log("재고 감소 응답:", reduceStockResponse.data);
 
                     alert("결제 성공 및 재고 감소 완료!");
                     navigate("/barcode", {
@@ -94,11 +92,11 @@ function Payment() {
                         },
                     });
                 } catch (error) {
-                    console.error("재고 감소 요청 실패:", error);
+                    console.error("재고 감소 요청 실패:", error.response ? error.response.data : error.message);
                     alert("결제 성공했지만 재고 감소 중 문제가 발생했습니다.");
                 }
             } else {
-                alert(`결제 실패: ${response.error_msg}`);
+                alert(`결제 실패: ${response.error_msg || "알 수 없는 오류가 발생했습니다."}`);
             }
         });
     };
@@ -211,6 +209,7 @@ function Payment() {
 }
 
 export default Payment;
+
 
 
 

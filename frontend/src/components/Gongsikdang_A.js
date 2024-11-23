@@ -75,12 +75,15 @@ function InfoRestaurant() {
                                 src={`/images2/${item.name.replace(/\s/g, "")}.PNG`}
                                 alt={item.name}
                                 className="menu-item-image"
-                                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                                style={{width: "100px", height: "100px", objectFit: "cover"}}
                                 onError={(e) => (e.target.src = "/images2/default.png")}
                             />
                             <h3 className="menu-item-name">{item.name}</h3>
+
                             <div className="menu-item-details">
                                 <p>가격: {item.price}원</p>
+                                {/* 남은 수량 표시 */}
+                                <p>남은 수량: {item.number || 0}개</p>
                                 <div className="quantity-controls">
                                     <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                                     <span>{item.quantity || 1}</span>
@@ -88,7 +91,7 @@ function InfoRestaurant() {
                                 </div>
                                 <button
                                     className="add-to-cart-button"
-                                    onClick={() => handleAddToCart(item, item.quantity || 1)}
+                                    onClick={() => handleAddToCart(item)}
                                 >
                                     담기
                                 </button>
