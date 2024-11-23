@@ -89,5 +89,6 @@ public class MenuController {
         List<MenuDTO> menuList = menuService.getCafeteriaMenu();
         return ResponseEntity.ok(menuList);
     }
+
 }
 

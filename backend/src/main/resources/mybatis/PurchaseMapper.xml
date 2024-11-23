@@ -2,24 +2,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.food.mapper.PurchaseMapper">
+
     <!-- 사용자 ID로 구매 내역 조회 -->
     <select id="findPurchasesByUserId" resultMap="purchaseResultMap">
         SELECT
-            p.id AS purchase_id,
-            p.merchantUid,
-            p.userId,
-            p.date,
-            p.totalAmount,
-            p.paymentMethod,
-            p.status,
-            i.name AS item_name,
-            i.quantity AS item_quantity,
-            i.price AS item_price
+        p.id AS purchase_id,
+        p.merchantUid,
+        p.userId,
+        p.date,
+        p.totalAmount,
+        p.paymentMethod,
+        p.status,
+        i.name AS item_name,
+        i.quantity AS item_quantity,
+        i.price AS item_price
         FROM purchases p
-                 LEFT JOIN items i ON p.id = i.purchaseId
+        LEFT JOIN items i ON p.id = i.purchaseId
         WHERE p.userId = #{userId}
     </select>
 
+    <!-- 구매 결과 매핑 -->
     <resultMap id="purchaseResultMap" type="com.food.dto.PurchaseDTO">
         <id property="id" column="purchase_id"/>
         <result property="merchantUid" column="merchantUid"/>
@@ -35,17 +37,37 @@
         </collection>
     </resultMap>
 
-
     <!-- 구매 데이터 저장 -->
     <insert id="insertPurchase" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO purchases (merchantUid, userId, date, totalAmount, paymentMethod, status)
         VALUES (#{purchase.merchantUid}, #{purchase.userId}, #{purchase.date}, #{purchase.totalAmount}, #{purchase.paymentMethod}, #{purchase.status})
     </insert>
 
-
     <!-- 아이템 데이터 저장 -->
     <insert id="insertItem">
         INSERT INTO items (name, quantity, price, purchaseId)
         VALUES (#{item.name}, #{item.quantity}, #{item.price}, #{item.purchaseId})
     </insert>
+
+    <!-- 포인트 업데이트 -->
+    <update id="updatePoints">
+        UPDATE user
+        SET points = points + #{amount}
+        WHERE id = #{userId}
+    </update>
+
+    <!-- 포인트 조회 -->
+    <select id="getPoints" resultType="int">
+        SELECT COALESCE(points, 0)
+        FROM user
+        WHERE id = #{userId}
+    </select>
+
+    <!-- 포인트 차감 -->
+    <update id="deductPoints">
+        UPDATE user
+        SET points = points - #{amount}
+        WHERE id = #{userId} AND points >= #{amount}
+    </update>
+
 </mapper>

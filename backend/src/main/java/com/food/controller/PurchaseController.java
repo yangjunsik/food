@@ -1,5 +1,6 @@
 package com.food.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.config.JwtUtil;
 import com.food.dto.PurchaseDTO;
 import com.food.service.PurchaseService;
@@ -22,34 +23,58 @@ public class PurchaseController {
         this.jwtUtil = jwtUtil;
     }
 
-    // 구매 내역 조회
-    @GetMapping("/purchases")
-    public ResponseEntity<?> getPurchases(@RequestHeader("Authorization") String token) {
+    private String extractUserId(String token) {
         if (token == null || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
+            throw new IllegalArgumentException("Invalid token format");
         }
-
-        String userToken = token.substring(7); // "Bearer " 이후의 토큰 값 추출
-        List<PurchaseDTO> purchases = purchaseService.getPurchasesByToken(userToken);
-
-        if (purchases.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("구매 내역이 없습니다.");
-        }
-
-        return ResponseEntity.ok(purchases);
-    }
-
-    // 구매 데이터 저장
-    @PostMapping("/purchases")
-    public ResponseEntity<?> savePurchase(@RequestBody PurchaseDTO purchaseDTO, @RequestHeader("Authorization") String token) {
-        if (token == null || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
-        }
-
-        String userToken = token.substring(7); // "Bearer " 이후의 토큰 값 추출
 
         try {
-            purchaseService.savePurchase(purchaseDTO, userToken);
+            return jwtUtil.extractUsername(token.substring(7));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Malformed or invalid token");
+        }
+    }
+
+    @GetMapping("/purchases")
+    public ResponseEntity<?> getPurchases(@RequestHeader("Authorization") String token) {
+        try {
+            String userId = extractUserId(token);
+            List<PurchaseDTO> purchases = purchaseService.getPurchasesByToken(userId);
+
+            if (purchases.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No purchase history found.");
+            }
+
+            return ResponseEntity.ok(purchases);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server error occurred.");
+        }
+    }
+
+    @PostMapping("/purchases")
+    public ResponseEntity<?> savePurchase(
+            @RequestBody Map<String, Object> requestBody,
+            @RequestHeader("Authorization") String token
+    ) {
+        if (token == null || !token.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
+        }
+
+        String userId = jwtUtil.extractUsername(token.substring(7));
+        Integer pointUsage = (Integer) requestBody.get("pointUsage");
+
+        try {
+            if (pointUsage != null && pointUsage > 0) {
+                purchaseService.deductPoints(userId, pointUsage);
+            }
+
+            PurchaseDTO purchaseDTO = new ObjectMapper().convertValue(requestBody.get("purchase"), PurchaseDTO.class);
+            purchaseDTO.setUserId(userId);
+            purchaseService.savePurchase(purchaseDTO, token);
+
             return ResponseEntity.status(HttpStatus.CREATED).body("구매 데이터 저장 성공");
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,37 +82,51 @@ public class PurchaseController {
         }
     }
 
-    // 포인트 적립 엔드포인트 추가
-//    @PostMapping("/points/deposit")
-//    public ResponseEntity<?> depositPoints(
-//            @RequestBody Map<String, Integer> request,
-//            @RequestHeader("Authorization") String token) {
-//        if (token == null || !token.startsWith("Bearer ")) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
-//        }
-//
-//        String userId = jwtUtil.extractUsername(token.substring(7));
-//        int amount = request.getOrDefault("amount", 0);
-//
-//        if (amount <= 0) {
-//            return ResponseEntity.badRequest().body("Invalid amount");
-//        }
-//
-//        // PurchaseService를 재활용하여 포인트 처리
-//        purchaseService.addPoints(userId, amount);
-//        return ResponseEntity.ok("포인트 적립 성공");
-//    }
-//
-//    // 포인트 조회 엔드포인트
-//    @GetMapping("/points")
-//    public ResponseEntity<?> getPoints(@RequestHeader("Authorization") String token) {
-//        if (token == null || !token.startsWith("Bearer ")) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
-//        }
-//
-//        String userId = jwtUtil.extractUsername(token.substring(7));
-//        int points = purchaseService.getPoints(userId);
-//        return ResponseEntity.ok(Map.of("points", points));
-//    }
 
+    @PostMapping("/points/charge")
+    public ResponseEntity<?> chargePoints(
+            @RequestBody Map<String, Integer> requestBody,
+            @RequestHeader("Authorization") String token) {
+        try {
+            String userId = extractUserId(token);
+            int amount = requestBody.getOrDefault("amount", 0);
+
+            if (amount <= 0) {
+                return ResponseEntity.badRequest().body("Invalid amount");
+            }
+
+            int bonus = amount >= 100000 ? (int) (amount * 0.1) : 0;
+            int totalAmount = amount + bonus;
+
+            purchaseService.addPoints(userId, totalAmount);
+            return ResponseEntity.ok(Map.of(
+                    "message", "Points charged successfully.",
+                    "chargedAmount", amount,
+                    "bonus", bonus,
+                    "total", totalAmount
+            ));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error charging points.");
+        }
+    }
+
+    @GetMapping("/points")
+    public ResponseEntity<?> getPoints(@RequestHeader("Authorization") String token) {
+        try {
+            String userId = extractUserId(token);
+            int points = purchaseService.getPoints(userId);
+            return ResponseEntity.ok(Map.of("points", points));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching points.");
+        }
+    }
 }
+
+
+

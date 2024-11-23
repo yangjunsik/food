@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./css/payment.css"; // CSS 파일 연결
-import axios from "axios"; // axios로 백엔드 연동
+import "./css/payment.css";
+import axios from "axios";
 
 function Payment() {
     const location = useLocation();
     const navigate = useNavigate();
     const { cart } = location.state || { cart: [] };
 
-    const [paymentMethod, setPaymentMethod] = useState("card"); // 기본 결제 수단: 카드
-    const [pgProvider, setPgProvider] = useState("kakaopay"); // 기본 PG사: 카카오페이
+    const [paymentMethod, setPaymentMethod] = useState("card");
+    const [pgProvider, setPgProvider] = useState("kakaopay");
+    const [pointBalance, setPointBalance] = useState(0);
+    const [pointUsage, setPointUsage] = useState(0);
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const pointBalance = 3000; // 예시 포인트 잔액
-    const pointUsage = pointBalance >= totalAmount ? totalAmount : pointBalance;
-    const finalAmount = totalAmount - pointUsage;
+    const finalAmount = Math.max(totalAmount - pointUsage, 0);
+
+    useEffect(() => {
+        const fetchPoints = async () => {
+            try {
+                const token = sessionStorage.getItem("token");
+                const response = await axios.get("http://localhost:8080/api/points", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                setPointBalance(response.data.points || 0);
+            } catch (error) {
+                console.error("포인트 정보 가져오기 실패:", error);
+                setPointBalance(0);
+            }
+        };
+
+        fetchPoints();
+    }, []);
 
     const handlePayment = () => {
-        const IMP = window.IMP; // 아임포트 초기화
-        IMP.init("imp17808248"); // 아임포트 "가맹점 식별코드"
+        const IMP = window.IMP;
+        IMP.init("imp17808248");
 
-        const merchantUid = `mid_${new Date().getTime()}`; // 주문번호 생성
+        const merchantUid = `mid_${new Date().getTime()}`;
         const paymentData = {
-            pg: pgProvider, // PG사 (카카오페이 or 토스페이)
-            pay_method: paymentMethod, // 결제 수단
+            pg: pgProvider,
+            pay_method: paymentMethod,
             merchant_uid: merchantUid,
             name: "주문 상품",
             amount: finalAmount,
@@ -34,7 +51,6 @@ function Payment() {
             buyer_postcode: "123-456",
         };
 
-        // 결제 요청
         IMP.request_pay(paymentData, async (response) => {
             if (response.success) {
                 try {
@@ -46,26 +62,26 @@ function Payment() {
                         return;
                     }
 
-                    // 백엔드로 결제 데이터 전송
                     await axios.post(
-                        "http://localhost:8080/api/purchases", // 백엔드 API 주소
+                        "http://localhost:8080/api/purchases",
                         {
-                            merchantUid,
-                            date: new Date().toISOString(),
-                            totalAmount,
-                            paymentMethod,
-                            pgProvider,
-                            items: cart.map((item) => ({
-                                name: item.name,
-                                quantity: item.quantity,
-                                price: item.price,
-                            })),
-                            status: "SUCCESS",
+                            purchase: {
+                                merchantUid,
+                                date: new Date().toISOString(),
+                                totalAmount,
+                                paymentMethod,
+                                pgProvider,
+                                items: cart.map((item) => ({
+                                    name: item.name,
+                                    quantity: item.quantity,
+                                    price: item.price,
+                                })),
+                                status: "SUCCESS",
+                            },
+                            pointUsage,
                         },
                         {
-                            headers: {
-                                Authorization: `Bearer ${token}`, // JWT 토큰 전달
-                            },
+                            headers: { Authorization: `Bearer ${token}` },
                         }
                     );
 
@@ -89,7 +105,6 @@ function Payment() {
     return (
         <section className="pay-section">
             <div className="container">
-                {/* 주문 상품 */}
                 <h2>주문 상품</h2>
                 {cart.map((item, index) => (
                     <div key={index} className="white-box">
@@ -101,40 +116,26 @@ function Payment() {
                     </div>
                 ))}
 
-                {/* 총 주문 금액 */}
-                <h2>총 주문 금액</h2>
-                <div className="white-box">
-                    <div className="flex-container">
-                        <p>총 주문 금액</p>
-                        <p>{totalAmount}원</p>
-                    </div>
-                </div>
-
-                {/* 충전 포인트 */}
                 <h2>충전포인트</h2>
                 <div className="white-box">
-                    <div className="flex-container">
-                        <p>포인트 잔액</p>
-                        <p>{pointBalance}원</p>
-                    </div>
-                    <div className="transparent-box">
-                        <div className="flex-container">
-                            <p>사용 포인트</p>
-                            <p>{pointUsage}원</p>
-                        </div>
-                    </div>
+                    <p>포인트 잔액: {pointBalance}원</p>
+                    <input
+                        type="number"
+                        value={pointUsage}
+                        onChange={(e) => {
+                            const usage = Math.min(
+                                parseInt(e.target.value, 10) || 0,
+                                pointBalance,
+                                totalAmount
+                            );
+                            setPointUsage(usage);
+                        }}
+                        placeholder="사용할 포인트 입력"
+                    />
                 </div>
 
-                {/* 총 결제 금액 */}
-                <h2>총 결제 금액</h2>
-                <div className="white-box">
-                    <div className="flex-container">
-                        <p>최종 결제 금액</p>
-                        <p>{finalAmount}원</p>
-                    </div>
-                </div>
+                <h2>총 결제 금액: {finalAmount}원</h2>
 
-                {/* PG사 선택 */}
                 <h2>결제 대행사</h2>
                 <div className="pg-option">
                     <input
@@ -159,41 +160,16 @@ function Payment() {
                     <label htmlFor="toss-payment">토스페이</label>
                 </div>
 
-                {/* 결제 수단 */}
-                <h2>결제 수단</h2>
-                <div className="payment-option">
-                    <input
-                        type="radio"
-                        id="card-payment"
-                        name="payment-method"
-                        value="card"
-                        checked={paymentMethod === "card"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <label htmlFor="card-payment">카드 간편결제</label>
-                </div>
-                <div className="payment-option">
-                    <input
-                        type="radio"
-                        id="simple-account"
-                        name="payment-method"
-                        value="trans"
-                        checked={paymentMethod === "trans"}
-                        onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <label htmlFor="simple-account">계좌 간편결제</label>
-                </div>
-
-                {/* 결제하기 버튼 */}
-                <button className="submit-btn" onClick={handlePayment}>
-                    결제하기
-                </button>
+                <button onClick={handlePayment}>결제하기</button>
             </div>
         </section>
     );
 }
 
 export default Payment;
+
+
+
 
 
 

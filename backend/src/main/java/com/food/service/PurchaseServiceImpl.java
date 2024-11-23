@@ -21,24 +21,39 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public List<PurchaseDTO> getPurchasesByToken(String userToken) {
-        // JWT에서 userId 추출
         String userId = jwtUtil.extractUsername(userToken);
         return purchaseMapper.findPurchasesByUserId(userId);
     }
 
     @Override
     public void savePurchase(PurchaseDTO purchaseDTO, String userToken) {
-        // JWT에서 userId 추출
         String userId = jwtUtil.extractUsername(userToken);
         purchaseDTO.setUserId(userId);
 
-        // 구매 정보를 DB에 저장
+        // 구매 정보 저장
         purchaseMapper.insertPurchase(purchaseDTO);
 
-        // 각 아이템을 DB에 저장
+        // 구매 상품 저장
         for (ItemDTO item : purchaseDTO.getItems()) {
-            item.setPurchaseId(purchaseDTO.getId()); // `purchaseId`를 설정
+            item.setPurchaseId(purchaseDTO.getId());
             purchaseMapper.insertItem(item);
         }
     }
+
+    @Override
+    public void addPoints(String userId, int amount) {
+        purchaseMapper.updatePoints(userId, amount);
+    }
+
+    @Override
+    public int getPoints(String userId) {
+        Integer points = purchaseMapper.getPoints(userId);
+        return points != null ? points : 0; // null인 경우 기본값 0
+    }
+
+    @Override
+    public void deductPoints(String userId, int amount) {
+        purchaseMapper.deductPoints(userId, amount);
+    }
 }
+
