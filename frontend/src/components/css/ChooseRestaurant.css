@@ -60,12 +60,16 @@ h2 {
 
 /* 마이페이지 박스 */
 .mypage-box {
-    padding: 15px;
+    padding: 18px 25px; /* 버튼 크기 증가 */
     background-color: #e74c3c;
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
+    font-size: 1.1em; /* 약간 더 큰 글씨 */
+    display: flex;
+    align-items: center; /* 아이콘과 텍스트 정렬 */
+    gap: 10px; /* 아이콘과 텍스트 간격 */
 }
 
 .mypage-box:hover {
@@ -76,17 +80,19 @@ h2 {
 /* 로그아웃 버튼 */
 .logout button {
     width: 100%;
-    padding: 12px;
+    padding: 15px; /* 버튼 크기 약간 증가 */
     background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px; /* 둥글기 수정 */
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
+    margin-top: 20px; /* 마이페이지 박스와의 간격 */
 }
 
 .logout button:hover {
     background-color: #c0392b;
     transform: translateY(-3px);
 }
+

@@ -67,6 +67,24 @@ function InfoRestaurant() {
     return (
         <section className="info-section">
             <div className="info-restaurant">
+                {/* 상단 버튼 영역 */}
+                <div className="top-buttons">
+                    {/* 뒤로 버튼 */}
+                    <button
+                        className="top-button back-button"
+                        onClick={() => navigate(-1)} // 이전 페이지로 이동
+                    >
+                        뒤로
+                    </button>
+
+                    {/* 홈 버튼 */}
+                    <button
+                        className="top-button home-button"
+                        onClick={() => navigate('/chooseRestaurant')} // ChooseRestaurant.js로 이동
+                    >
+                        홈
+                    </button>
+                </div>
                 <h1>공식당 D코너 메뉴</h1> {/* 제목 수정 */}
                 {error && <p className="error">{error}</p>}
                 <ul className="menu-list">

@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./css/payment.css"; // CSS 파일 연결
+import axios from "axios"; // axios로 백엔드 연동
 
 function Payment() {
     const location = useLocation();
     const navigate = useNavigate();
     const { cart } = location.state || { cart: [] };
 
-    const [selectedPayment, setSelectedPayment] = useState("credit-card");
+    const [selectedPayment, setSelectedPayment] = useState("credit-card"); // 기본 결제 수단: 신용카드
+    const [pgProvider, setPgProvider] = useState("html5_inicis"); // 기본 PG사: 이니시스 (신용카드)
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const pointBalance = 3000; // 예시 포인트 잔액
+    const pointUsage = pointBalance >= totalAmount ? totalAmount : pointBalance;
+    const finalAmount = totalAmount - pointUsage;
 
     const handlePayment = () => {
-        alert(`결제 방법: ${selectedPayment}`);
-        // 결제 처리 로직 추가 필요
         const IMP = window.IMP; // 아임포트 초기화
         IMP.init("imp17808248"); // 아임포트 "가맹점 식별코드"
 
         const merchantUid = `mid_${new Date().getTime()}`; // 주문번호 생성
         const paymentData = {
-            pg: pgProvider, // PG사 (카카오페이 or 토스페이)
-            pay_method: paymentMethod, // 결제 수단
+            pg: pgProvider, // PG사 설정
+            pay_method: selectedPayment, // 결제 수단
             merchant_uid: merchantUid,
             name: "주문 상품",
             amount: finalAmount,
@@ -50,7 +53,7 @@ function Payment() {
                             merchantUid,
                             date: new Date().toISOString(),
                             totalAmount,
-                            paymentMethod,
+                            paymentMethod: selectedPayment,
                             pgProvider,
                             items: cart.map((item) => ({
                                 name: item.name,
@@ -67,7 +70,7 @@ function Payment() {
                     );
 
                     // **재고 감소 요청 추가**
-                    const reduceStockResponse = await axios.post(
+                    await axios.post(
                         "http://localhost:8080/menu/reduce", // 백엔드 재고 감소 API 주소
                         cart.map((item) => ({
                             name: item.name,
@@ -79,7 +82,6 @@ function Payment() {
                             },
                         }
                     );
-                    console.log("재고 감소 응답:", reduceStockResponse.data);
 
                     alert("결제 성공 및 재고 감소 완료!");
                     navigate("/barcode", {
@@ -101,6 +103,24 @@ function Payment() {
     return (
         <section className="pay-section">
             <div className="container">
+                {/* 상단 버튼 영역 */}
+                <div className="top-buttons">
+                    {/* 뒤로 버튼 */}
+                    <button
+                        className="top-button back-button"
+                        onClick={() => navigate(-1)} // 이전 페이지로 이동
+                    >
+                        뒤로
+                    </button>
+
+                    {/* 홈 버튼 */}
+                    <button
+                        className="top-button home-button"
+                        onClick={() => navigate('/chooseRestaurant')} // ChooseRestaurant.js로 이동
+                    >
+                        홈
+                    </button>
+                </div>
                 {/* 주문 상품 */}
                 <h2>주문 상품</h2>
                 {cart.map((item, index) => (
@@ -113,7 +133,7 @@ function Payment() {
                     </div>
                 ))}
 
-                {/* 총 주문 금액 */}
+                {/* 총 결제 금액 */}
                 <h2>총 결제 금액</h2>
                 <div className="white-box">
                     <div className="flex-container">
@@ -125,26 +145,37 @@ function Payment() {
                 {/* 결제 방법 */}
                 <h2>결제 방법</h2>
                 <div className="payment-methods">
+                    {/* 신용·체크카드 */}
                     <div
                         className={`method-box ${selectedPayment === "credit-card" ? "selected" : ""}`}
-                        onClick={() => setSelectedPayment("credit-card")}
+                        onClick={() => {
+                            setSelectedPayment("credit-card");
+                            setPgProvider("html5_inicis"); // 신용·체크카드는 이니시스 설정
+                        }}
                     >
                         <p>신용·체크카드</p>
                     </div>
+                    {/* 카카오페이 */}
                     <div
                         className={`method-box ${selectedPayment === "kakaopay" ? "selected" : ""}`}
-                        onClick={() => setSelectedPayment("kakaopay")}
+                        onClick={() => {
+                            setSelectedPayment("kakaopay");
+                            setPgProvider("kakaopay");
+                        }}
                     >
-                        <img src="/images4/카카오페이-removebg-preview.png" alt="카카오페이" className="method-icon"/>
+                        <img src="/images4/카카오페이-removebg-preview.png" alt="카카오페이" className="method-icon" />
                     </div>
+                    {/* 토스페이 */}
                     <div
                         className={`method-box ${selectedPayment === "tosspay" ? "selected" : ""}`}
-                        onClick={() => setSelectedPayment("tosspay")}
+                        onClick={() => {
+                            setSelectedPayment("tosspay");
+                            setPgProvider("tosspay");
+                        }}
                     >
-                        <img src="/images4/토스페이-removebg-preview.png" alt="토스페이" className="method-icon"/>
+                        <img src="/images4/토스페이-removebg-preview.png" alt="토스페이" className="method-icon" />
                     </div>
                 </div>
-
 
                 {/* 결제하기 버튼 */}
                 <button className="submit-btn" onClick={handlePayment}>
@@ -156,8 +187,6 @@ function Payment() {
 }
 
 export default Payment;
-
-
 
 
 
