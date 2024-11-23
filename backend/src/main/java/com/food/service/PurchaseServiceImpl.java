@@ -39,21 +39,5 @@ public class PurchaseServiceImpl implements PurchaseService {
             purchaseMapper.insertItem(item);
         }
     }
-
-    @Override
-    public void addPoints(String userId, int amount) {
-        purchaseMapper.updatePoints(userId, amount);
-    }
-
-    @Override
-    public int getPoints(String userId) {
-        Integer points = purchaseMapper.getPoints(userId);
-        return points != null ? points : 0; // null인 경우 기본값 0
-    }
-
-    @Override
-    public void deductPoints(String userId, int amount) {
-        purchaseMapper.deductPoints(userId, amount);
-    }
 }
 

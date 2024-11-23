@@ -18,15 +18,5 @@ public interface PurchaseMapper {
 
     // 아이템 정보 저장
     void insertItem(@Param("item") ItemDTO itemDTO);
-
-    // 포인트 업데이트
-    void updatePoints(@Param("userId") String userId, @Param("amount") int amount);
-
-    // 포인트 조회
-    Integer getPoints(@Param("userId") String userId);
-
-    //포인트 차감
-    void deductPoints(@Param("userId") String userId, @Param("amount") int amount);
-
 }
 
