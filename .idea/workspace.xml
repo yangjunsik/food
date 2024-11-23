@@ -4,38 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fb6bb3-d95e-4525-9fbf-2b04e0492e09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j고구마돈가스.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j순살돈가스.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j오늘의메뉴.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j왕돈가스.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j왕치즈돈가스.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j우동.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images1/j치즈돈가스.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/닭불고기덮밥.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/돈가스마요.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/등심돈가스+스프.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/따로소고기국밥.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/땡초우동+주먹밥.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/떡라면.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/뚝배기알밥.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/만두라면.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/매운돈가스마요.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/불고기치즈뚝배기.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/삼겹김치전골.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/양푼이비빔밥+된장찌개.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/쟁반수육.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/최루탄라면.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images2/치즈뚝배기알밥.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c고구마돈가스.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c순살돈가스.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c오늘의메뉴.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c왕돈가스.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c왕치즈돈가스.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images3/c치즈돈가스.jpg" afterDir="false" />
-    <list default="true" id="445d8873-3c3c-4da7-b2d9-7acb69dc19e8" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ede6813-f30c-4a8d-9020-b9fa3de75b7c.xml" afterDir="false" />
     <list default="true" id="372c1986-c1b5-45cf-958e-9e2f73baa0ed" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/frontend/public/images4/카카오페이-removebg-preview.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/public/images4/토스페이-removebg-preview.png" afterDir="false" />
@@ -55,22 +23,6 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
-  <component name="ProjectId" id="2pEPtdRRs1LE0yMrXyIE1Nz0Xsk" />
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
-  <component name="ProjectId" id="2pENNxRJ3jvhvpH2Ok4G5B5mCsA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -99,56 +51,7 @@
       </method>
     </configuration>
   </component>
-}]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="445d8873-3c3c-4da7-b2d9-7acb69dc19e8" name="변경" comment="" />
-      <created>1732328486006</created>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="62fb6bb3-d95e-4525-9fbf-2b04e0492e09" name="Changes" comment="" />
-      <created>1732327246863</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1732328486006</updated>
-      <workItem from="1732328488476" duration="8763000" />
-      <updated>1732327246863</updated>
-      <workItem from="1732327253171" duration="9857000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/usun" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

@@ -1,8 +1,6 @@
-@import url('common.css');
-
 /* 공통 스타일 */
 .pay-section {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular', sans-serif; /* 폰트 설정 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,17 +89,6 @@ h2 {
     background-color: #f0f0f0;
 }
 
-/* 카카오페이 및 토스페이 이미지 스타일 */
-.method-box.kakaopay img,
-.method-box.tosspay img {
-    margin-bottom: 0; /* 이미지 아래쪽 여백 제거 */
-}
-
-.method-box.kakaopay p,
-.method-box.tosspay p {
-    display: none; /* 글자 숨김 */
-}
-
 /* 버튼 스타일 */
 button.submit-btn {
     width: 100%;
@@ -116,4 +103,19 @@ button.submit-btn {
 
 button.submit-btn:hover {
     background-color: #c0392b;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    .payment-methods {
+        grid-template-columns: 1fr; /* 1열 레이아웃 */
+    }
+
+    .method-box {
+        height: 100px; /* 높이 축소 */
+    }
+
+    .submit-btn {
+        font-size: 14px; /* 버튼 폰트 크기 조정 */
+    }
 }

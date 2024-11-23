@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./css/payment.css"; // CSS 파일 연결
+import axios from "axios"; // axios로 백엔드 연동
 
 function Payment() {
     const location = useLocation();
     const navigate = useNavigate();
     const { cart } = location.state || { cart: [] };
 
-    const [selectedPayment, setSelectedPayment] = useState("credit-card");
+    const [selectedPayment, setSelectedPayment] = useState("credit-card"); // 기본 결제 수단: 신용카드
+    const [pgProvider, setPgProvider] = useState("kakaopay"); // 기본 PG사: 카카오페이
 
     const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const pointBalance = 3000; // 예시 포인트 잔액
+    const pointUsage = pointBalance >= totalAmount ? totalAmount : pointBalance;
+    const finalAmount = totalAmount - pointUsage;
 
     const handlePayment = () => {
-        alert(`결제 방법: ${selectedPayment}`);
-        // 결제 처리 로직 추가 필요
         const IMP = window.IMP; // 아임포트 초기화
         IMP.init("imp17808248"); // 아임포트 "가맹점 식별코드"
 
         const merchantUid = `mid_${new Date().getTime()}`; // 주문번호 생성
         const paymentData = {
             pg: pgProvider, // PG사 (카카오페이 or 토스페이)
-            pay_method: paymentMethod, // 결제 수단
+            pay_method: selectedPayment, // 결제 수단
             merchant_uid: merchantUid,
             name: "주문 상품",
             amount: finalAmount,
@@ -50,7 +53,7 @@ function Payment() {
                             merchantUid,
                             date: new Date().toISOString(),
                             totalAmount,
-                            paymentMethod,
+                            paymentMethod: selectedPayment,
                             pgProvider,
                             items: cart.map((item) => ({
                                 name: item.name,
@@ -114,13 +117,14 @@ function Payment() {
                 ))}
 
                 {/* 총 주문 금액 */}
-                <h2>총 결제 금액</h2>
+                <h2>총 주문 금액</h2>
                 <div className="white-box">
                     <div className="flex-container">
                         <p>총 주문 금액</p>
                         <p>{totalAmount}원</p>
                     </div>
                 </div>
+
 
                 {/* 결제 방법 */}
                 <h2>결제 방법</h2>
@@ -133,18 +137,23 @@ function Payment() {
                     </div>
                     <div
                         className={`method-box ${selectedPayment === "kakaopay" ? "selected" : ""}`}
-                        onClick={() => setSelectedPayment("kakaopay")}
+                        onClick={() => {
+                            setSelectedPayment("kakaopay");
+                            setPgProvider("kakaopay");
+                        }}
                     >
-                        <img src="/images4/카카오페이-removebg-preview.png" alt="카카오페이" className="method-icon"/>
+                        <img src="/images4/카카오페이-removebg-preview.png" alt="카카오페이" className="method-icon" />
                     </div>
                     <div
                         className={`method-box ${selectedPayment === "tosspay" ? "selected" : ""}`}
-                        onClick={() => setSelectedPayment("tosspay")}
+                        onClick={() => {
+                            setSelectedPayment("tosspay");
+                            setPgProvider("tosspay");
+                        }}
                     >
-                        <img src="/images4/토스페이-removebg-preview.png" alt="토스페이" className="method-icon"/>
+                        <img src="/images4/토스페이-removebg-preview.png" alt="토스페이" className="method-icon" />
                     </div>
                 </div>
-
 
                 {/* 결제하기 버튼 */}
                 <button className="submit-btn" onClick={handlePayment}>
@@ -156,6 +165,7 @@ function Payment() {
 }
 
 export default Payment;
+
 
 
 
