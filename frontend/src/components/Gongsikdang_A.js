@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // navigate 사용
+import { useNavigate } from "react-router-dom";
 import api from "../axiosConfig";
 import "./css/InfoRestaurant.css";
 
@@ -7,7 +7,7 @@ function InfoRestaurant() {
     const [menuItems, setMenuItems] = useState([]);
     const [cart, setCart] = useState([]);
     const [error, setError] = useState(null);
-    const navigate = useNavigate(); // navigate 선언
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -15,14 +15,18 @@ function InfoRestaurant() {
                 const response = await api.get("/menu/info/a", {
                     params: { sector: "A" }
                 });
-                console.log("Fetched Menu Data:", response.data); // 데이터 확인
-                setMenuItems(response.data);
+                const updatedMenu = response.data.map((item) => ({
+                    ...item,
+                    name: item.name.trim(),
+                    price: Number(item.price),
+                    quantity: 1
+                }));
+                setMenuItems(updatedMenu);
             } catch (error) {
                 setError("Failed to fetch menu items");
                 console.error("Error fetching menu:", error);
             }
         };
-
 
         fetchMenu();
     }, []);
@@ -54,7 +58,6 @@ function InfoRestaurant() {
     };
 
     const navigateToPayment = () => {
-        // 결제 페이지로 이동하면서 상태 전달
         navigate("/payment", {
             state: { cart: cart }
         });
@@ -68,10 +71,16 @@ function InfoRestaurant() {
                 <ul className="menu-list">
                     {menuItems.map((item, index) => (
                         <li key={index} className="menu-item">
-                            <img src={item.image} alt={item.name} className="menu-item-image" />
+                            <img
+                                src={`/images2/${item.name.replace(/\s/g, "")}.PNG`}
+                                alt={item.name}
+                                className="menu-item-image"
+                                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                                onError={(e) => (e.target.src = "/images2/default.png")}
+                            />
+                            <h3 className="menu-item-name">{item.name}</h3>
                             <div className="menu-item-details">
-                                <h2>{item.name}</h2>
-                                <p>Price: {item.price}원</p>
+                                <p>가격: {item.price}원</p>
                                 <div className="quantity-controls">
                                     <button onClick={() => handleQuantityChange(item, -1)}>-</button>
                                     <span>{item.quantity || 1}</span>
@@ -89,21 +98,28 @@ function InfoRestaurant() {
                 </ul>
                 {cart.length > 0 && (
                     <div className="cart-summary">
-                        <h2>선택한 메뉴</h2>
+                        <h2>장바구니</h2>
                         <ul>
                             {cart.map((cartItem, index) => (
                                 <li key={index} className="cart-item">
-                                    {cartItem.name} - {cartItem.quantity}개 - {cartItem.price * cartItem.quantity}원
+                                    <span className="cart-item-name">{cartItem.name}</span>
+                                    <span className="cart-item-quantity">{cartItem.quantity}개</span>
+                                    <span className="cart-item-price">
+                                        {cartItem.price * cartItem.quantity}원
+                                    </span>
                                     <button
                                         className="remove-from-cart-button"
                                         onClick={() => handleRemoveFromCart(cartItem.name)}
                                     >
-                                        -
+                                        ✖
                                     </button>
                                 </li>
                             ))}
                         </ul>
-                        <button className="navigate-to-payment-button" onClick={navigateToPayment}>
+                        <button
+                            className="navigate-to-payment-button"
+                            onClick={navigateToPayment}
+                        >
                             결제창으로 이동
                         </button>
                     </div>
